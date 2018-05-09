@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/style.css">
+		<title>网络诊间</title>
+	</head>
+	<body>
+		<div id="header" class="header">
+			<div class="headtop">
+				<div class="hosplogo">
+					<img src="image/icon.png">
+				</div>
+				<div class="caselogin" id="caselogin">
+					<img src="image/caselogin.png">
+				</div>
+			</div>
+		</div>
+
+		<div class="headnavarea" id="headnavarea">
+			<div class="headnav">
+				<span id="wlzj" class="hnunit hnuclick" address="src/wlzj2/index.html" target="contentFrame">网络诊间</span>
+				<span id="zk" class="hnunit" address="src/zkmz/index.html" target="contentFrame">专科门诊</span>
+				<span id="my" class="hnunit" address="">专家预约</span>
+				<span id="zxys" class="hnunit" address="">在线医生</span>
+				<span id="helpCenter" class="hnunit" address="">帮助中心</span>
+				<span id="personalCenter" class="hnunit" address="">个人中心</span>
+			</div>
+		</div>
+
+		<iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.html" style="width: 100%; height: 2041px; margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no"></iframe>
+
+		<div class="inthospopup" id="loginDiv" style="display: none">
+			<div class="cover"></div>
+			<div id="loginContentDiv" class="ihconpop">
+				<div class="closeihconpop"></div>
+				<div class="ihcphead">登陆/注册</div>
+				<div class="ihcpbody hp-loginpop">
+					<img class="hp-loginuser" src="image/loginuser.png">
+					<img class="hp-loginkey" src="image/loginkey.png">
+					<input type="text" class="loginuser" id="userName" placeholder="请输入手机号">
+					<input type="password" class="loginuser loginuserkey" id="password" placeholder="请输入密码">
+					<div class="loginusered">
+						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
+						<div>
+							<div id="login" class="loginbut">登录</div>
+							<div id="register" class="loginbut">注册</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="lib/jquery-3.2.1.js"></script>
+	<script src="js/index.js"></script>
+</html>
