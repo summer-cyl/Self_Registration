@@ -1,1 +1,96 @@
-123
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+.hp-bg {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url(../image/background.png);
+	background-size: cover;
+
+}
+.title {
+    position: relative;
+    top: 20%;
+    display: block;
+    /*left: 10%;*/
+    width: 60%;
+    margin: 0 auto;
+}
+.hp-content {
+	position: absolute;
+	top: 30%;
+	width: 1044px;
+	height: 300px;
+}
+#focus_Box {
+	position: relative;
+    width: 1044px;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+.textshadow {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin: 256px 0 0 -130px;
+    width: 260px;
+    height: 26px;
+    border-radius: 13px;
+    background: #064986;
+    opacity: 0.3;
+}
+#pictureSlider ul {
+    position: relative;
+    width: 1044px;
+    height: 300px;
+
+}
+.hp-carimg{
+	border-radius: 5px;
+	box-shadow:0px 8px 20px rgba(0, 29, 63, 0.4);
+}
+.poster-item p {
+   display: none;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 27px;
+    height: 34px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    color: #fff;
+    line-height: 34px;
+    border-radius: 5px;
+    text-align: center;
+}
+li {
+    text-align: center;
+}
+
+/*轮播*/
+.pictureSlider{
+    height: 518px;
+    margin-bottom: 24px;
+}
+.poster-item{
+    /*background: #fff;*/
+    height: 218px;
+    width:336px;
+    border-radius: 10px;
+    padding:30px 23px 23px 23px;
+    transition: all 0.5s;cursor: default;
+    -moz-transition: all 0.5s;cursor: default;
+    -webkit-transition: all 0.5s;cursor: default;
+    -o-transition: all 0.5s;cursor: default;
+}
+.cell_list{
+    margin-bottom: 20px;
+    color:#999;font-size: 18px;
+    overflow: hidden;
+}
+

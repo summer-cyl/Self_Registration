@@ -1,4 +1,87 @@
-123456789
->>>>>>> c255e5987ab6930be22a3f86f7eaf132efe70797
-123456789
-123456
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/public.css">
+	<script type="text/javascript" src="js/zturn.js"></script>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<title>自助挂号系统</title>
+		<img class="title"  src="image/font.png">
+		<div class="hp-content" id="focus_Box">
+			<p class="textshadow" style="display: block;"></p>
+			<!--轮播-->
+			<div class="lb_gl">
+				<div class="pictureSlider">
+					<ul id="zturn" class="poster-list">
+						<li class="poster-item  zturn-item" href="" >
+							<img class="hp-carimg" src="image/grda.png" >
+							<p style="display: block;">
+								个人档案
+							</p>
+						</li>
+						<li class="poster-item  zturn-item" href="" >
+							<img class="hp-carimg" src="image/wlzj.png" >
+							<p style="display: block;">
+								网络诊间
+							</p>
+						</li>
+						<li class="poster-item  zturn-item" href="">
+							<img class="hp-carimg" src="image/gjyx.png" >
+							<p style="display: block;">
+								国际影像会诊中心
+							</p>
+						</li>
+						<li class="poster-item  zturn-item" href="">
+							<img class="hp-carimg" src="image/cfsh.png" >
+							<p style="display: block;">
+								处方审核和药物治疗管理中心
+							</p>
+						</li>
+						<li class="poster-item  zturn-item" href="">
+							<img class="hp-carimg" src="image/lnjk.png" >
+							<p style="display: block;">
+								老年健康管理中心
+							</p>
+						</li>
+						<li class="poster-item  zturn-item"  href="" >
+							<img class="hp-carimg" src="image/mbgl.png" >
+							<p style="display: block;">
+								慢病管理中心
+							</p>
+						</li>
+						<li class="poster-item  zturn-item" href="" >
+							<img class="hp-carimg" src="image/hlxy.png" >
+							<p style="display: block;">
+								护理学院
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var aa=new zturn({
+		id:"zturn",
+		opacity:0.9,
+		width:382,
+		Awidth:1024,
+		scale:0.9,
+		auto:true,//是否轮播 默认5000
+		turning:1000//轮播时长
+	})
+	var ab=new zturn({
+		id:"zturn2",
+		opacity:0.8,
+		width:382,
+		Awidth:1024,
+		scale:0.6,
+		auto:true
+	})
+</script>
+</html>
