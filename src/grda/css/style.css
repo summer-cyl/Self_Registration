@@ -1,0 +1,177 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header {
+	width: 100%;
+	background-color: #ffffff;
+	height: 96px;
+	-moz-box-shadow: 0px 2px 3px #eee;
+	box-shadow: 0px 2px 3px #eee;
+}
+
+.headtop {
+	width: 1024px;
+	height: 96px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hosplogo img {
+	float: left;
+	width: 246px;
+	margin: 18px 0;
+}
+
+.caselogin {
+	float: right;
+	margin: 18px 0;
+	color: #1695CA;
+	cursor: pointer;
+}
+
+.headnavarea {
+	height: 36px;
+	background-color: #3692e2;
+	border-bottom: 1px solid #cecfd2;
+}
+
+.headnav {
+	width: 1024px;
+	height: 36px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hnuclick {
+	background-color: #2c7dc3;
+}
+
+.hnunit {
+	display: inline-block;
+	width: 100px;
+	font-size: 14px;
+	line-height: 36px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.container {
+	width: 100%;
+	margin-top: -15px;
+}
+
+.content-info {
+	width: 100%;
+	height: 880px;
+	background: url(../image/background.png) no-repeat center top;
+	background-size: cover;
+}
+
+.content {
+	width: 1024px;
+	margin: 0 auto;
+}
+.content ul {
+	padding-top: 150px;
+	overflow: hidden;
+}
+.content li {
+	float: left;
+	width: 300px;
+	height: 200px;
+	margin: 0 40px 40px 0;
+	background: rgba(255,255,255,.7);
+	border-radius:6px;
+	box-shadow:0px 1px 3px #E6E6E6;
+	list-style: none;
+}
+.content i {
+	display: block;
+	width:65px;
+	height: 65px;
+	margin: 0 auto;
+	margin-top: 45px;
+	background: url(../image/icon.png) 0px 0px no-repeat;
+}
+.content .chufang,.content .zhuyuan {
+	margin-right: 0px;
+}
+.menzhen i {
+	background-position: -80px 0px;
+}
+.chufang i {
+	background-position: -155px 0px;
+}
+.huayan i {
+	background-position: -228px 0px;
+}
+.jiancha i {
+	background-position: -304px 0px;
+}
+.zhuyuan i {
+	background-position: -155px 0px;
+}
+
+.content li p {
+	margin-top: 22px;
+	color: #666666;
+	font-size: 16px;
+	margin-bottom: 0;
+	text-align: center;
+}
+.content li span {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 2px;
+	color: #666666;
+}
+
+.rightnav {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: 0px 0 0 540px;
+	width: 80px;
+	border: none;
+}
+.rnbut {
+	width: 70px;
+	height:70px;
+	margin-bottom:15px;
+}
+.rnbut img {
+	width: 70px;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

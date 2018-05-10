@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>网络诊间</title>
+	</head>
+	<body>
+		<div id="bodyH">
+			<input type="hidden" id="isWlzj2" value="1">
+			<div id="addUserInfoTitle" class="addPerson">
+				新增联系人
+				<button class="addBtn" onclick="openWindow();"></button>
+			</div>
+
+			<div id="userInfoDiv" class="addCon formDiv">
+				<ul class="vaildcardul">
+					<li>
+						<label class="dataType dataType2">
+							<span style="color:red">*</span>
+						    姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+						</label>
+						<input type="text" id="name" class="dataValueS">
+					</li>
+					<li>
+						<label class="dataType dataType2">
+							<span style="color:red">*</span>
+						    身份证号：
+						</label>
+						<input type="text" id="realName" class="dataValueS">
+					</li>
+				</ul>
+				<button class="addClose" onclick="closeWindow();"></button>
+				<input type="button" id="btnSave" value="保存" onclick="save()">
+			</div>
+
+			<table cellspacing="0" cellspacing="0" class="addTable">
+				<thead>
+					<tr>
+						<td width="12%">姓名</td>
+						<td width="10%">性别</td>
+						<td width="25%">身份证号</td>
+						<td width="12%">操作</td>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td colspan="6">暂时没有就诊卡信息！</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</body>
+</html>
+
+<style type="text/css">
+
+    body {
+    	height: 520px;
+    }
+
+    li {
+    	list-style: none;
+    }
+		
+	.addPerson {
+	    color: #09719f;
+	    font-size: 18px;
+	    margin-top: 10px;
+	    margin-bottom: -10px;
+	}
+	
+	.addBtn {
+	    width: 16px;
+	    height: 16px;
+	    display: inline-block;
+	    vertical-align: middle;
+	    background: url(image/addper.png) no-repeat;
+	    background-size: 100% 100%;
+	    border: none;
+	    margin: -3px 0 0 2px;
+	    cursor: pointer;
+	    outline: none;
+	}
+
+	.addCon {
+		width: 93%;
+	    padding: 25px;
+	    background: #fafafa;
+	    border: 1px solid #e6e6e6;
+	    margin-top: 20px;
+	    height: 230px;
+	    position: relative;
+	}
+
+	.addCon ul li {
+	    height: 50px;
+	    line-height: 50px;
+	}
+
+	.formDiv .vaildcardul {
+	    width: 350px;
+	    float: left;
+	}
+
+	.formDiv .dataType {
+	    width: 90px;
+	    display: inline-block;
+	}
+	.dataType2{
+		text-align: right;
+		font-size: 16px!important;
+		width: 100px!important;
+		text-align: right;
+	}
+
+	.formDiv .dataValueS {
+	    margin-left: 10px;
+	    height: 32px;
+	    width: 230px;
+	    display: inline-block;
+	    border: 1px solid #e6e6e6;
+	    border-radius: 3px;
+	}
+	
+	.addTable {
+	    width: 100%;
+	    text-align: center;
+	    margin-top: 20px;
+	    overflow: hidden;
+	    border: 1px solid #fcfcfc;
+	}
+
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+
+	}
+
+	.addTable td {
+	    border: 1px solid #e6e6e6;
+	    color: #666;
+	    word-wrap: break-word;
+	    word-break: break-all;
+	}
+
+	.addTable thead tr{
+		height:40px;
+		background:#ebf3fc;
+	}
+	.addTable thead tr td{
+		/* border-bottom:1px solid #fcfcfc; */
+	}
+	.addTable tbody tr{
+		height:68px;
+	}
+
+	.addCon input[type="button"] {
+	    width: 100px;
+	    height: 40px;
+	    border-radius: 6px;
+	    background-color: #1490c7;
+	    border: 0;
+	    color: #fff;
+	    font-size: 18px;
+	    clear: both;
+	    display: block;
+	    margin: auto;
+	    position: relative;
+	    top: 30px;
+	}
+
+	.addClose {
+	    width: 29px;
+	    height: 28px;
+	    background: url(image/addclose.png) no-repeat;
+	    border: none;
+	    position: absolute;
+	    top: 0px;
+	    right: 0px;
+	    cursor: pointer;
+	    outline: none;
+	}
+
+	#userInfoDiv {
+		display: none;
+	}
+
+	#btnSave {
+		cursor: pointer;
+		outline: none;
+	}
+}
+
+</style>
+
+<script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript">
+	function openWindow(){
+		$("#userInfoDiv").css("display", "block");
+	}
+
+	function closeWindow(){
+		$("#userInfoDiv").css("display", "none");
+	}
+</script>
