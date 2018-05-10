@@ -22,14 +22,24 @@
 			<div class="headnav">
 				<span id="wlzj" class="hnunit hnuclick" address="src/wlzj2/index.html" target="contentFrame">网络诊间</span>
 				<span id="zk" class="hnunit" address="src/zkmz/index.html" target="contentFrame">专科门诊</span>
-				<span id="my" class="hnunit" address="">专家预约</span>
-				<span id="zxys" class="hnunit" address="">在线医生</span>
+				<span id="my" class="hnunit" address="src/zjyy/index.html">专家预约</span>
+				<span id="zxys" class="hnunit" address="src/zxys/index.html">在线医生</span>
 				<span id="helpCenter" class="hnunit" address="">帮助中心</span>
 				<span id="personalCenter" class="hnunit" address="">个人中心</span>
 			</div>
 		</div>
 
-		<iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.html" style="width: 100%; height: 2041px; margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no"></iframe>
+		<iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.html" style="width: 100%; margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no""></iframe>
+		<script type="text/javascript">
+		    var b_iframe = window.parent.parent.document.getElementById("contentFrame");
+		    var hash_url = window.location.hash;
+		    if (hash_url.indexOf("#") >= 0) {
+		        var hash_width = hash_url.split("#")[1].split("|")[0] + "px";
+		        var hash_height = hash_url.split("#")[1].split("|")[1] + "px";
+		        b_iframe.style.width = hash_width;
+		        b_iframe.style.height = hash_height;
+		    }
+		</script>
 
 		<div class="inthospopup" id="loginDiv" style="display: none">
 			<div class="cover"></div>

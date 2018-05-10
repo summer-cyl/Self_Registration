@@ -60,6 +60,9 @@ $('.adddoctor2').click(function() {
     }
 });
 
+$('#moreMY').click(function() {
+    window.location.href = "http://www.baidu.com";
+});
 
 
 

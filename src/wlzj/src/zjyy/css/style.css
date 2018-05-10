@@ -1,0 +1,218 @@
+body {
+	height: 949px;
+	margin: 0;
+	padding: 0;
+	font: 12px/1.14 arial,\5b8b\4f53;
+	color: #333;
+	outline: 0;
+}
+
+.content {
+	position: relative;
+	background-color: #f5f8fa;
+	overflow: hidden;
+}
+
+.inthoscontent {
+	overflow: hidden;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bigphofig {
+	height: 200px;
+	margin-top: 19px;
+	border-radius: 5px;
+}
+
+.bigphofig img {
+	display: block;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.clinicdetail {
+	border: 1px solid #eaeaea;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	background: #fff;
+	-moz-box-shadow: 0px 2px 3px #eee;
+	box-shadow: 0px 2px 3px #eee;
+}
+
+.clinicflowc {
+	width: 1024px;
+	height: 100px;
+	margin: 0 auto;
+	background: #fafafa;
+	border-bottom: 1px solid #f1f0f1;
+	overflow: hidden;
+}
+
+.clinicflowc img {
+	display: block;
+	width: 864px;
+	margin: 0 auto;
+	margin-top: 24px;
+}
+
+.ordertop {
+	font-size: 16px;
+	line-height: 42px;
+	color: #333;
+	padding-left: 15px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.doclistchoose {
+	position: relative;
+	overflow: hidden;
+	background-color: #fafafa;
+	padding: 10px 0;
+	height: 150px;
+}
+
+.adddoctor {
+	position: absolute;
+	width: 50px;
+	right: 30px;
+	top: 15px;
+	font-size: 14px;
+	color: #666;
+	text-align: right;
+	background: url(../image/colsesearch.png) no-repeat 0 6px;
+	cursor: pointer;
+}
+
+.dlctr {
+	width: 930px;
+}
+
+.dlcliname {
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 16px;
+	margin: 7px;
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	line-height: 16px;
+	border-right: 2px solid #dbdbdb;
+}
+
+.dlclidet {
+	display: inline-block;
+	width: 809px;
+}
+
+.dlclidet span {
+	display: inline-block;
+	padding: 0 10px;
+	min-width: 56px;
+	border-radius: 3px;
+	font-size: 14px;
+	color: #666;
+	line-height: 22px;
+	text-align: center;
+	margin: 4px 10px;
+	cursor: pointer;
+}
+
+.dlcldc {
+	color: #fff!important;
+	background-color: #7ba6e0;
+}
+
+.docarea {
+	overflow: hidden;
+	padding: 20px 11px;
+}
+
+.item {
+	float: left;
+	position: relative;
+	width: 130px;
+	margin: 20px 35px;
+}
+
+.docimg {
+	width: 102px;
+	margin: 0 auto;
+}
+
+.docimg img {
+	width: 100px;
+	height: 120px;
+	border-radius: 5px;
+	border: 1px solid #e6e6e6;
+}
+
+.docname {
+	height: 20px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}
+
+.deptname {
+	height: 30px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 30px;
+	color: #666;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.docgoodin {
+	height: 40px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #999;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	white-space: normal;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+.orderdocbut {
+	width: 100px;
+	height: 26px;
+	border: 1px solid #3692e2;
+	border-radius: 5px;
+	margin: 10px auto;
+	margin-bottom: 0;
+	font-size: 14px;
+	color: #3692e2;
+	line-height: 26px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.orderdocbutstt {
+	border: 1px solid #999;
+	color: #999;
+	cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
