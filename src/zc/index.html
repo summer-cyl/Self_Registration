@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/style.css">
+		<title>用户注册</title>
+	</head>
+	<body>
+		<div id="head">
+        	<div class="mod-header">
+				<a href="#">
+					<img src="image/baidu.gif">
+					<img style="margin-left: 14px;" src="image/logo.png">
+				</a>	
+			</div>
+        </div>
+		<div id="nav">
+            <div class="nav-2">
+				<div class="mod-nav clearfix">
+					<h1 class="page-type-notab"></h1>
+				</div>
+			</div>
+        </div>
+        
+		<!-- <iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.html" style="width: 100%; margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no""></iframe> -->
+		<!-- <script type="text/javascript">
+		    var b_iframe = window.parent.parent.document.getElementById("contentFrame");
+		    var hash_url = window.location.hash;
+		    if (hash_url.indexOf("#") >= 0) {
+		        var hash_width = hash_url.split("#")[1].split("|")[0] + "px";
+		        var hash_height = hash_url.split("#")[1].split("|")[1] + "px";
+		        b_iframe.style.width = hash_width;
+		        b_iframe.style.height = hash_height;
+		    }
+		</script> -->
+
+		<!-- <div class="inthospopup" id="loginDiv" style="display: none">
+			<div class="cover"></div>
+			<div id="loginContentDiv" class="ihconpop">
+				<div class="closeihconpop"></div>
+				<div class="ihcphead">登陆/注册</div>
+				<div class="ihcpbody hp-loginpop">
+					<img class="hp-loginuser" src="image/loginuser.png">
+					<img class="hp-loginkey" src="image/loginkey.png">
+					<input type="text" class="loginuser" id="userName" placeholder="请输入手机号">
+					<input type="password" class="loginuser loginuserkey" id="password" placeholder="请输入密码">
+					<div class="loginusered">
+						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
+						<div>
+							<div id="login" class="loginbut">登录</div>
+							<div id="register" class="loginbut">注册</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="main">
+		 	<div id="idid_1" style="margin:0;padding: 0;">
+		 		<div style="margin-top: 5px;">
+					<img style="width: 959px;height: 112px;" 
+					src="image/zyyylogin.png">
+				</div>
+			</div>
+			<div class="maincss">
+				<div class="zctop">
+					<div class="yhzccss">用户注册</div>
+					<div class="helpcss"><a href="#">帮助</a>
+					</div>
+				</div>
+			
+				<div class="regDiv">
+	    			<li>
+	    				<label class="datatype">手机：</label>
+	    				<input type="text" name="phone" id="phone" class="dataValue">
+	    			</li>
+	    			<li>
+	    				<label class="datatype">密码：</label>
+	    				<input type="password" name="pwd" id="pwd" class="dataValue">
+	    			</li>
+	    			<li>
+	    				<label class="datatype">重复密码：</label>
+	    				<input type="password" name="pwd" id="repwd" class="dataValue">
+	    			</li>
+	    	
+	    			<li style="height:50px;">
+	    				<button id="register" class="regbtn" onclick="register();">注册</button>
+	    			</li>
+
+				</div>
+		
+			</div>
+		</div>
+	</body>
+	<script src="js/index.js"></script>
+</html>

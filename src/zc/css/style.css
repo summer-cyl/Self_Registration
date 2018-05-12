@@ -1,0 +1,179 @@
+body {
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+#head {
+	/*display: block;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/*width:100%;*/
+	width: 980px;
+	height: 75px;
+	z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+}
+#head .mod-header a{
+    display: flex;
+    width: 330px;
+    flex-direction: row;
+    margin-top: 18px;
+  	/*background: url(../image/logo.png) right no-repeat;*/
+}
+
+.mod-header {
+    display: inline;
+    font-size: 66px;
+    width: 959px;
+}
+
+#nav {
+    background: 0 0;
+    background-image: initial;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+
+#nav {
+    width: 100%;
+    background: #fafafa;
+    z-index: 1;
+}
+#nav .nav-2 {
+    height: 20px;
+    background: url(../image/reg_hr.png) no-repeat center top;
+}
+.clearfix {
+    zoom: 1;
+}
+h1 {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main {
+    min-height: 600px;
+    margin-top: 5px;
+    background-color: white;
+    width: 960px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 960px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.maincss {
+    width: 960px;
+    height: auto;
+    background-color: white;
+    font-size: 15px;
+    margin: 15px 0px 0px 0px;
+    overflow: hidden;
+}
+.zctop {
+    width: 880px;
+    height: 80px;
+    border-bottom: 1px solid #C9C9C9;
+    margin: 0px 0px 0px 40px;
+    color: #1794CC;
+    font-size: 24px;
+    line-height: 115px;
+    font-weight: bold;
+}
+.zctop div {
+    margin: 0px 0px 0px 20px;
+}
+.yhzccss {
+    float: left;
+}
+.helpcss {
+    float: right;
+}
+.regDiv {
+	position: absolute;
+	top: 60%;
+	left: 35%;
+	/*margin:-225px, 0, 0, -150px;*/
+    width: 450px;
+    float: left;
+    height: 300px;
+}
+.regDiv .datatype {
+    display: block;
+    width: 75px;
+    text-align: right;
+    float: left;
+    height: 35px;
+}
+input {
+    font-size: 12px;
+    line-height: 30px;
+    font: 12px/1.14 arial,\5b8b\4f53;
+    color: #333;
+    outline: 0;
+}
+label {
+    cursor: default;
+}
+.regDiv .regbtn {
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 5px;
+    background: #1490c7;
+    border: none;
+    font-size: 14px;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+button{
+    font: 12px/1.14 arial,\5b8b\4f53;
+    color: #333;
+    outline: 0;
+}
+a, button {
+    cursor: pointer;
+}
+button {
+	margin:0;
+	padding: 0;
+}
+.helpcss a {
+    color: #1794CC;
+}
+.regDiv li {
+    line-height: 35px;
+    margin-top: 15px;
+    font-size: 15px;
+    color: #666;
+    overflow: hidden;
+    height: 35px;
+}
+li {
+    list-style: none;
+}
+a, span, div, p {
+    font-family: "Microsoft YaHei";
+}
+.regDiv .dataValue {
+    height: 35px;
+    width: 228px;
+    display: block;
+    float: left;
+    border: 1px solid #e6e6e6;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+del, ins, u, s, a, a:hover {
+    text-decoration: none;
+}

@@ -310,20 +310,20 @@ function selectCard(info) {
 	}
 }
 
-function getLink() {
-	var length = $('.addMan').children('span').length;
-	if (length < 10)
-	{
-		var txt = $("#treatCardType").find("option:selected").text();
-		$("#selectBg").text(txt)
-		$("#addPop").show();
-	}
-	else
-	{
-		alert('就诊卡数量达到了上限，无法添加了');
-		return false;
-	}
-}
+// function getLink() {
+// 	var length = $('.addMan').children('span').length;
+// 	if (length < 10)
+// 	{
+// 		var txt = $("#treatCardType").find("option:selected").text();
+// 		$("#selectBg").text(txt)
+// 		$("#addPop").show();
+// 	}
+// 	else
+// 	{
+// 		alert('就诊卡数量达到了上限，无法添加了');
+// 		return false;
+// 	}
+// }
 
 function selectOpt() {
 	var txt = $("#treatCardType").find("option:selected").text();
@@ -334,74 +334,74 @@ function closePop() {
 	$("#addPop").hide();
 }
 
-function save()
-{
-	var name = $("#name2").val();
-//	var phone = $("#phone2").val();
-	var treatCard = $("#treatCard2").val();
-	var idCard = $("#idCard2").val();
-	var cardType = $("#treatCardType option:selected").val();
-	var regPhone = /^\d{11}$/; 
-	var regCard = /^[a-zA-Z0-9]+$/;
+// function save()
+// {
+// 	var name = $("#name2").val();
+// //	var phone = $("#phone2").val();
+// 	var treatCard = $("#treatCard2").val();
+// 	var idCard = $("#idCard2").val();
+// 	var cardType = $("#treatCardType option:selected").val();
+// 	var regPhone = /^\d{11}$/; 
+// 	var regCard = /^[a-zA-Z0-9]+$/;
 	
-	// if ($("#name2").isRealName() == false)
-	// {
-	// 	alert('姓名格式错误!');
-	// 	return false;
-	// }
-	// if ($("#idCard2").isIDCard() == false)
-	// {
-	// 	alert('身份证格式错误!');
-	// 	return false;
-	// }
-//	if (!regPhone.test($("#phone2").val().trim()))
-//	{
-//		alert('手机号格式错误, 请输入11位手机号!');
-//		return false;
-//	}
-	if (treatCard.length > 0 && !regCard.test(treatCard))
-	{
-		alert('就诊卡格式错误!');
-		return false;
-	}
-	$("#btnSave").attr("onclick", "javascript:void();");
-	var isSubmit = false;
-	if (!isSubmit) {
-		isSubmit = true;
-		$("#btnSave").html("提交中...");
-		$.post(
-			"http://www.zy91.com/zyyy/login/medicalCard.htm?action=addMedicalCard", 
-			{
-				name: name, 
-				idCard:idCard,
-				type: cardType,
-				treatCard: treatCard
-			}, 
-			function(res){
-				$("#btnSave").html("保存");
-				$("#btnSave").attr("onclick", "save()");
-				if (parseInt(res.ret_code) == 0)
-				{
-					var isYy = $("#isYy").val();
-					if (isYy != undefined) {
-						if (isYy == "0")
-							window.location.href = "http://www.zy91.comzyyy/login/zk.html?action=writeInfo&isWlzj2=1&deptScheduleId="+$("#deptScheduleId").val();
-						else if (isYy == "1" || isYy == "2")
-							window.location.href="http://www.zy91.com/zyyy/login/my.html?action=writeInfo&isWlzj2=1&doctorScheduleId="+$("#doctorScheduleId").val();
-					}
-					return true;
-				}
-				else
-				{
-					isSubmit = false;
-					alert(res.ret_info);
-					return false;
-				}
-			},
-			"json"
-		);
-	}
-}
+// 	// if ($("#name2").isRealName() == false)
+// 	// {
+// 	// 	alert('姓名格式错误!');
+// 	// 	return false;
+// 	// }
+// 	// if ($("#idCard2").isIDCard() == false)
+// 	// {
+// 	// 	alert('身份证格式错误!');
+// 	// 	return false;
+// 	// }
+// //	if (!regPhone.test($("#phone2").val().trim()))
+// //	{
+// //		alert('手机号格式错误, 请输入11位手机号!');
+// //		return false;
+// //	}
+// 	if (treatCard.length > 0 && !regCard.test(treatCard))
+// 	{
+// 		alert('就诊卡格式错误!');
+// 		return false;
+// 	}
+// 	$("#btnSave").attr("onclick", "javascript:void();");
+// 	var isSubmit = false;
+// 	if (!isSubmit) {
+// 		isSubmit = true;
+// 		$("#btnSave").html("提交中...");
+// 		$.post(
+// 			"http://www.zy91.com/zyyy/login/medicalCard.htm?action=addMedicalCard", 
+// 			{
+// 				name: name, 
+// 				idCard:idCard,
+// 				type: cardType,
+// 				treatCard: treatCard
+// 			}, 
+// 			function(res){
+// 				$("#btnSave").html("保存");
+// 				$("#btnSave").attr("onclick", "save()");
+// 				if (parseInt(res.ret_code) == 0)
+// 				{
+// 					var isYy = $("#isYy").val();
+// 					if (isYy != undefined) {
+// 						if (isYy == "0")
+// 							window.location.href = "http://www.zy91.comzyyy/login/zk.html?action=writeInfo&isWlzj2=1&deptScheduleId="+$("#deptScheduleId").val();
+// 						else if (isYy == "1" || isYy == "2")
+// 							window.location.href="http://www.zy91.com/zyyy/login/my.html?action=writeInfo&isWlzj2=1&doctorScheduleId="+$("#doctorScheduleId").val();
+// 					}
+// 					return true;
+// 				}
+// 				else
+// 				{
+// 					isSubmit = false;
+// 					alert(res.ret_info);
+// 					return false;
+// 				}
+// 			},
+// 			"json"
+// 		);
+// 	}
+// }
 
 // function getHistory(mainType) {
 // 	$.ajax({
