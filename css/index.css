@@ -37,7 +37,7 @@ html, body {
     display: none;
     position: absolute;
     left: 50%;
-    margin: 256px 0 0 -130px;
+    margin: 236px 0 0 -140px;
     width: 260px;
     height: 26px;
     border-radius: 13px;
@@ -58,7 +58,7 @@ html, body {
    display: none;
     width: 100%;
     margin: 0 auto;
-    margin-top: 27px;
+    margin-top: 10px;
     height: 34px;
     font-size: 17px;
     letter-spacing: 1px;
@@ -84,13 +84,14 @@ li {
     border-radius: 10px;
     padding:30px 23px 23px 23px;
     transition: all 0.5s;cursor: default;
-    -moz-transition: all 0.5s;cursor: default;
-    -webkit-transition: all 0.5s;cursor: default;
-    -o-transition: all 0.5s;cursor: default;
+    -moz-transition: all 0.5s;cursor: pointer;
+    -webkit-transition: all 0.5s;cursor: pointer;
+    -o-transition: all 0.5s;cursor: pointer;
 }
 .cell_list{
     margin-bottom: 20px;
     color:#999;font-size: 18px;
     overflow: hidden;
 }
+
 

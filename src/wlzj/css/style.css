@@ -32,6 +32,14 @@ body {
 	cursor: pointer;
 }
 
+.caselogin a {
+	font-size: 14px;
+}
+
+.caselogin span {
+	font-size: 14px;
+}
+
 .headnavarea {
 	height: 36px;
 	background-color: #3692e2;

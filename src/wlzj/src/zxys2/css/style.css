@@ -9,15 +9,15 @@ input,button ,textarea, select {
 select::-ms-expand { 
 	display: none; 
 } 
+textarea {
+	font: 12px/1.14 arial,\5b8b\4f53;
+	color: #333;
+}
 body{
 	height: 1181px;
 	font-family: "microsoft yahei";
 	margin: 0;
 	padding: 0;
-}
-textarea {
-	font: 12px/1.14 arial,\5b8b\4f53;
-	color: #333;
 }
 .content{
 	position: relative;

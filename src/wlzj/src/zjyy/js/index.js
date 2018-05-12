@@ -18,3 +18,9 @@ $('.dlclidet span').click(function() {
     $(this).addClass('dlcldc').siblings().removeClass('dlcldc');
 });
 
+$('.myyy').click(function() {
+    window.location.href = "http://localhost:3000/src/zjyy2/index.html";
+});
+
+
+

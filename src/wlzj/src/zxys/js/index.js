@@ -18,3 +18,7 @@ $('.dlclidet span').click(function() {
     $(this).addClass('dlcldc').siblings().removeClass('dlcldc');
 });
 
+$('.zxys').click(function() {
+    window.location.href = "http://localhost:3000/src/zxys2/index.html";
+});
+

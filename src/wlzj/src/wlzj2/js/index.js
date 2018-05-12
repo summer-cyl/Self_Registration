@@ -60,8 +60,21 @@ $('.adddoctor2').click(function() {
     }
 });
 
+
+$('.zkyy').click(function() {
+    window.location.href = "http://localhost:3000/src/zkmz2/index.html";
+});
+$('.myyy').click(function() {
+    window.location.href = "http://localhost:3000/src/zjyy2/index.html";
+});
+$('.zxys').click(function() {
+    window.location.href = "http://localhost:3000/src/zxys2/index.html";
+});
 $('#moreMY').click(function() {
-    window.location.href = "http://www.baidu.com";
+    window.location.href = "http://localhost:3000/src/zjyy/index.html";
+});
+$('#moreZxys').click(function() {
+    window.location.href = "http://localhost:3000/src/zxys/index.html";
 });
 
 

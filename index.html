@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/public.css">
-	<script type="text/javascript" src="js/zturn.js"></script>
-	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	
 </head>
 <body>
 	<title>自助挂号系统</title>
@@ -17,13 +16,13 @@
 			<div class="lb_gl">
 				<div class="pictureSlider">
 					<ul id="zturn" class="poster-list">
-						<li class="poster-item  zturn-item" href="" >
+						<li class="poster-item  zturn-item" href="src/grda/index.html">
 							<img class="hp-carimg" src="image/grda.png" >
 							<p style="display: block;">
 								个人档案
 							</p>
 						</li>
-						<li class="poster-item  zturn-item" href="" >
+						<li class="poster-item  zturn-item" href="src/wlzj/index.html" >
 							<img class="hp-carimg" src="image/wlzj.png" >
 							<p style="display: block;">
 								网络诊间
@@ -66,23 +65,7 @@
 		
 	</div>
 </body>
-<script type="text/javascript">
-	var aa=new zturn({
-		id:"zturn",
-		opacity:0.9,
-		width:382,
-		Awidth:1024,
-		scale:0.9,
-		auto:true,//是否轮播 默认5000
-		turning:1000//轮播时长
-	})
-	var ab=new zturn({
-		id:"zturn2",
-		opacity:0.8,
-		width:382,
-		Awidth:1024,
-		scale:0.6,
-		auto:true
-	})
-</script>
+<script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/zturn.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </html>
