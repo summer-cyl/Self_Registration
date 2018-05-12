@@ -1,5 +1,9 @@
+html {
+    height: 100%;
+}
 body {
-	height: auto;
+    background: #3692e2;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -10,58 +14,32 @@ body {
 	justify-content: space-between;
 	/*width:100%;*/
 	width: 980px;
-	height: 75px;
+	height: 12%;
 	z-index: 100;
 	margin-left: auto;
 	margin-right: auto;
+    background: url(../image/gwbg.jpg) top left repeat-x;
 }
 #head .mod-header a{
     display: flex;
     width: 330px;
     flex-direction: row;
-    margin-top: 18px;
-  	/*background: url(../image/logo.png) right no-repeat;*/
+    margin-top: 20px;
+    margin-left: 30px;
 }
 
 .mod-header {
     display: inline;
     font-size: 66px;
-    width: 959px;
-}
-
-#nav {
-    background: 0 0;
-    background-image: initial;
-    background-position-x: 0px;
-    background-position-y: 0px;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: initial;
-}
-
-#nav {
     width: 100%;
-    background: #fafafa;
-    z-index: 1;
+    height: 100%;
 }
-#nav .nav-2 {
-    height: 20px;
-    background: url(../image/reg_hr.png) no-repeat center top;
-}
+
 .clearfix {
     zoom: 1;
 }
-h1 {
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-}
 .main {
-    min-height: 600px;
+    height: 88%;
     margin-top: 5px;
     background-color: white;
     width: 960px;
@@ -73,7 +51,7 @@ h1 {
 }
 .maincss {
     width: 960px;
-    height: auto;
+    height: 400px;
     background-color: white;
     font-size: 15px;
     margin: 15px 0px 0px 0px;
@@ -100,12 +78,12 @@ h1 {
 }
 .regDiv {
 	position: absolute;
-	top: 60%;
+	top: 50%;
 	left: 35%;
 	/*margin:-225px, 0, 0, -150px;*/
-    width: 450px;
+    width: auto;
     float: left;
-    height: 300px;
+    height: auto;
 }
 .regDiv .datatype {
     display: block;
@@ -133,8 +111,8 @@ label {
     background: #1490c7;
     border: none;
     font-size: 14px;
-    margin-left: 70px;
-    margin-top: 15px;
+    display: block;
+    margin: 0 auto;
 }
 button{
     font: 12px/1.14 arial,\5b8b\4f53;
@@ -143,10 +121,6 @@ button{
 }
 a, button {
     cursor: pointer;
-}
-button {
-	margin:0;
-	padding: 0;
 }
 .helpcss a {
     color: #1794CC;
