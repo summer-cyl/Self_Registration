@@ -24,7 +24,6 @@ body {
     display: flex;
     width: 330px;
     flex-direction: row;
-    margin-top: 20px;
     margin-left: 30px;
 }
 
@@ -150,4 +149,9 @@ a, span, div, p {
 }
 del, ins, u, s, a, a:hover {
     text-decoration: none;
+}
+.mod-header a img {
+    height: 80px;
+    width: auto;
+    margin: 0;
 }
