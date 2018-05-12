@@ -12,8 +12,16 @@
 				<div class="hosplogo">
 					<img src="image/icon1.png">
 				</div>
-				<div class="caselogin" id="caselogin">
+				<div class="caselogin" id="caselogin" style="display: block;">
 					<img src="image/caselogin.png">
+				</div>
+				<div class="caselogin logined" id="caselogin" style="display: none;">
+					<a hidefocus="hidefocus" style="color:#1695CA;">
+						<span id="loname">XXXX</span>
+						，您好
+					</a>
+					<span class="sep"> | </span>
+					<a hidefocus="hidefocus">安全退出</a>
 				</div>
 			</div>
 		</div>
@@ -72,6 +80,30 @@
 				</a>
 			</div>
 		</div>
+
+		<div class="inthospopup" id="loginDiv" style="display: none">
+			<div class="cover"></div>
+			<div id="loginContentDiv" class="ihconpop">
+				<div class="closeihconpop"></div>
+				<div class="ihcphead">登陆/注册</div>
+				<div class="ihcpbody hp-loginpop">
+					<img class="hp-loginuser" src="image/loginuser.png">
+					<img class="hp-loginkey" src="image/loginkey.png">
+					<input type="text" class="loginuser" id="userName" placeholder="请输入手机号">
+					<input type="password" class="loginuser loginuserkey" id="password" placeholder="请输入密码">
+					<div class="loginusered">
+						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
+						<div>
+							<div id="login" class="loginbut">登录</div>
+							<a href="../zc/index.html" style="text-decoration: none;">
+								<div id="register" class="loginbut">注册</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="js/index.js"></script>
