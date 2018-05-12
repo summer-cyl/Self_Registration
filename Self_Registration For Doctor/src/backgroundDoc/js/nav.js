@@ -20,8 +20,10 @@ $(function(){
             $('.nav-item.nav-show').removeClass('nav-show');
             $('.nav-item').children('ul').removeAttr('style');
             $('.nav').addClass('nav-mini');
+            $('iframe').css('width', '96%');
         }else{
             $('.nav').removeClass('nav-mini');
+            $('iframe').css('width', '83%');
         }
     });
 });
