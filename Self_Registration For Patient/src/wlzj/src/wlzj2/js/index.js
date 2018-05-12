@@ -60,21 +60,22 @@ $('.adddoctor2').click(function() {
     }
 });
 
-
+var formTitle = "空白";
 $('.zkyy').click(function() {
-    window.location.href = "http://localhost:3000/src/zkmz2/index.html";
+	formTitle=$('.zkyy').index(this);
+    window.location.href = "../zkmz2/index.html?formTitle="+formTitle;
 });
 $('.myyy').click(function() {
-    window.location.href = "http://localhost:3000/src/zjyy2/index.html";
+    window.location.href = "../zjyy2/index.html";
 });
 $('.zxys').click(function() {
-    window.location.href = "http://localhost:3000/src/zxys2/index.html";
+    window.location.href = "../zxys2/index.html";
 });
 $('#moreMY').click(function() {
-    window.location.href = "http://localhost:3000/src/zjyy/index.html";
+    window.location.href = "../zjyy/index.html";
 });
 $('#moreZxys').click(function() {
-    window.location.href = "http://localhost:3000/src/zxys/index.html";
+    window.location.href = "../zxys/index.html";
 });
 
 

@@ -142,7 +142,39 @@ function save()
 }
 
 $('.vddbutlast').click(function() {
-    window.location.href = "http://localhost:3000/src/zkmz/index.html";
+	window.location.href="../zkmz/index.html";
 });
 
+function GetRequest() {   
+	   var url = location.search; 
+	   var theRequest = new Object();   
+	   if (url.indexOf("?") != -1) {   
+	      var str = url.substr(url.indexOf("?")+1);   
+	      strs = str.split("&|' ");   
+	      for(var i = 0; i < strs.length; i ++) { 
+	    	 console.log(strs[i]);
+	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+	      }   
+	   } 
+	   alert(theRequest["formTitle"]);
+	   var title = new Array(
+			   "全科门诊",
+			   "肝病专科门诊",
+			   "内分泌专科门诊",
+			   "消化疾病专科门诊",
+			   "呼吸疾病专科门诊",
+			   "儿科专科门诊",
+			   "肾脏疾病专科门诊",
+			   "心血管疾病专科门诊",
+			   "神经内科专科门诊",
+			   "精神卫生专科门诊",
+			   "药学门诊",
+			   "伤口造口失禁护理门诊",
+			   "孕妇课堂",
+			   "老年病科门诊"
+	   );
+	   $("#deptName").html(title[theRequest["formTitle"]]);
+	   return theRequest;   
+}   
+GetRequest();
 

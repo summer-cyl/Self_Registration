@@ -19,6 +19,6 @@ $('.dlclidet span').click(function() {
 });
 
 $('.zxys').click(function() {
-    window.location.href = "http://localhost:3000/src/zxys2/index.html";
+    window.location.href = "../zxys2/index.html";
 });
 

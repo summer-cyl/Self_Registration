@@ -19,7 +19,7 @@ $('.dlclidet span').click(function() {
 });
 
 $('.myyy').click(function() {
-    window.location.href = "http://localhost:3000/src/zjyy2/index.html";
+    window.location.href = "../zjyy2/index.html";
 });
 
 

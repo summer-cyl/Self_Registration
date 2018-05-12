@@ -142,6 +142,6 @@ function save()
 }
 
 $('.vddbutlast').click(function() {
-    window.location.href = "http://localhost:3000/src/zxys/index.html";
+    window.location.href = "../zxys/index.html";
 });
 
