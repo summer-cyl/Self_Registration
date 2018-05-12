@@ -44,9 +44,9 @@
 					</tr>
 				</thead>
 
-				<tbody>
-					<tr>
-						<td colspan="6">暂时没有就诊卡信息！</td>
+				<tbody id="tab">
+					<tr id="noPerson">
+						<td colspan="4">暂时没有就诊卡信息！</td>
 					</tr>
 				</tbody>
 			</table>
@@ -129,14 +129,9 @@
 	    width: 100%;
 	    text-align: center;
 	    margin-top: 20px;
+	    margin-left: -3px;
 	    overflow: hidden;
 	    border: 1px solid #fcfcfc;
-	}
-
-	table {
-	    border-collapse: collapse;
-	    border-spacing: 0;
-
 	}
 
 	.addTable td {
@@ -151,10 +146,18 @@
 		background:#ebf3fc;
 	}
 	.addTable thead tr td{
-		/* border-bottom:1px solid #fcfcfc; */
+		/*border: 1px solid #fcfcfc;*/ 
 	}
-	.addTable tbody tr{
-		height:68px;
+
+	.addTable tbody tr {
+		height: 45px;
+		font-size: 15px;
+		line-height: 45px;
+		border-bottom: 1px solid #fcfcfc;
+	}
+
+	#tab td tr {
+		border-bottom: 1px solid #fcfcfc;
 	}
 
 	.addCon input[type="button"] {
@@ -192,6 +195,17 @@
 		cursor: pointer;
 		outline: none;
 	}
+	.operation {
+		height: 44px;
+		line-height: 22px;
+
+	}
+	.operation span {
+		color: #3b8ede;
+		text-decoration: underline;
+		font-size: 15px;
+		cursor: pointer;
+	}
 }
 
 </style>
@@ -199,6 +213,8 @@
 <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript">
+	var count = 0;
+
 	function openWindow(){
 		$("#userInfoDiv").css("display", "block");
 	}
@@ -206,4 +222,66 @@
 	function closeWindow(){
 		$("#userInfoDiv").css("display", "none");
 	}
+
+	$("#tab").on('click', '.changeInfo', function(event) {
+		var id = $(this).parent().parent().parent().attr('id');
+		var name = $(this).parent().parent().parent().find('#infoName').text();
+		var realName = $(this).parent().parent().parent().find('#infoRealName').text();
+		openWindow();
+		$("#name").val(name);
+		$("#realName").val(realName);
+	});
+
+	$("#tab").on('click', '.deleteInfo', function(event) {
+		$(this).parent().parent().parent().remove();
+	});
+
+	function save() {
+		var name = $("#name").val();
+
+		if(name.length == 0)
+			alert("姓名格式错误！");
+		else {
+			var realName = $("#realName").val();
+
+			if(realName.length == 0)
+				alert("身份证格式错误！");
+			else {
+				alert("添加成功！");
+				closeWindow();
+
+				if(parseInt(realName.substr(16, 1)) % 2 == 1)
+		        	var sex = "男";
+		        else
+		        	var sex = "女";
+
+		        var td1 = '<td id="infoName">' + name + '</td>';
+		        var td2 = '<td>' + sex + '</td>';
+		        var td3 = '<td id="infoRealName">' + realName + '</td>';
+		        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
+
+
+		        $("#name").val("");
+		        $("#realName").val("");
+
+		        count ++;
+		        if(count == 0)
+					$("#noPerson").css("display", "block");
+				else
+					$("#noPerson").css("display", "none");
+
+		        $("#tab").append("<tr id="+count+" align='center' height='15px' border-bottom='1px solid #000000'>"
+		        	+ td1
+		        	+ td2
+		        	+ td3
+		        	+ td4
+		        	+"</tr>");
+
+			}
+		}
+		
+	}
+
+
+
 </script>

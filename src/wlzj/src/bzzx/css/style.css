@@ -1,0 +1,169 @@
+.rightnav {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: 0px 0 0 540px;
+	width: 80px;
+	border: none;
+}
+.rnbut {
+	width: 70px;
+	height:70px;
+	margin-bottom:15px;
+}
+.rnbut img {
+	width: 70px;
+	cursor:pointer;
+}
+
+.content {
+	position: relative;
+	background-color: #f5f8fa;
+	overflow: hidden;
+}
+.inthoscontent {
+	overflow:hidden;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bigphofig{
+	height: 200px;
+	margin-top: 19px;
+	border-radius: 5px;
+}
+.bigphofig img{
+	display:block;
+	margin:0 auto;
+	border-radius: 5px;
+}
+
+.personalpage{
+    overflow: hidden;
+	border-radius: 5px;
+	margin-bottom: 75px;
+}
+
+.ppleftnav{
+	float: left;
+	width: 185px;
+}
+.pplnlist{
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+    background: #fff;
+    -moz-box-shadow: 0px 2px 3px #eee;
+    box-shadow: 0px 2px 3px #eee;
+}
+.pplnul{
+	position: relative;
+	height: 50px;
+	line-height:50px;
+	font-size:14px;
+	color: #666;
+	cursor: pointer;
+}
+.pplnul:hover{
+	color: #fff;
+	background: #7ba6e0;
+}
+.pplnul u{
+	display: block;
+	float: left;
+	width: 18px;
+	height: 18px;
+	margin-left: 42px;
+	margin-top: 16px;
+}
+
+.pplnli{
+	display: inline-block;
+	margin-left: 10px;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pplnulclick {
+	background-color: #7ba6e0;
+	color: #fff;
+}
+
+.pplnu8{
+	background: url(../image/helpcln.png) no-repeat 0 2px;
+}
+.pplnulclick .pplnu8{
+	background: url(../image/helpcln.png) no-repeat -33px 2px;
+}
+.pplnu9{
+	background: url(../image/helpcln.png) no-repeat 0 -24px;
+}
+.pplnulclick .pplnu9{
+	background: url(../image/helpcln.png) no-repeat -33px -24px;
+}
+.pplnu10{
+	background: url(../image/helpcln.png) no-repeat 0 -50px;
+}
+.pplnulclick .pplnu10{
+	background: url(../image/helpcln.png) no-repeat -32px -50px;
+}
+.pplnu11{
+	background: url(../image/helpcln.png) no-repeat 0 -75px;
+}
+.pplnulclick .pplnu11{
+	background: url(../image/helpcln.png) no-repeat -33px -75px;
+}
+.pplnu12{
+	background: url(../image/ghxgn.png) no-repeat;
+}
+.pplnulclick .pplnu12{
+	background: url(../image/ghxgy.png) no-repeat;
+}
+.pplnu13{
+	background: url(../image/fwtkn.png) no-repeat;
+}
+.pplnulclick .pplnu13{
+	background: url(../image/fwtky.png) no-repeat;
+}
+
+.personalpage .clinicdetail {
+    float: right;
+    width: 820px;
+}
+
+.clinicdetail {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background: #fff;
+    -moz-box-shadow: 0px 2px 3px #eee;
+    box-shadow: 0px 2px 3px #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+iframe[Attributes Style] {
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+
+
+iframe {
+	border: 0;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+
