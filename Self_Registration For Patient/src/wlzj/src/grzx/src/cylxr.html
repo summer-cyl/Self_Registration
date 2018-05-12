@@ -214,9 +214,14 @@
 <script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript">
 	var count = 0;
+	var option = 1;  //option为1表示添加新数据， option为2表示修改数据
+
+	var nowId;
 
 	function openWindow(){
 		$("#userInfoDiv").css("display", "block");
+		$("#name").val("");
+		$("#realName").val("");
 	}
 
 	function closeWindow(){
@@ -224,64 +229,94 @@
 	}
 
 	$("#tab").on('click', '.changeInfo', function(event) {
-		var id = $(this).parent().parent().parent().attr('id');
+		nowId = $(this).parent().parent().parent().attr('id');
 		var name = $(this).parent().parent().parent().find('#infoName').text();
 		var realName = $(this).parent().parent().parent().find('#infoRealName').text();
 		openWindow();
 		$("#name").val(name);
 		$("#realName").val(realName);
+		option = 2;
 	});
 
 	$("#tab").on('click', '.deleteInfo', function(event) {
 		$(this).parent().parent().parent().remove();
+		count --;
+		if(count == 0)
+			$("#noPerson").css("display", "table-row");
 	});
 
 	function save() {
-		var name = $("#name").val();
 
-		if(name.length == 0)
-			alert("姓名格式错误！");
-		else {
-			var realName = $("#realName").val();
+		if(option == 1){
+			var name = $("#name").val();
 
-			if(realName.length == 0)
-				alert("身份证格式错误！");
+			if(name.length == 0)
+				alert("姓名格式错误！");
 			else {
-				alert("添加成功！");
-				closeWindow();
+				var realName = $("#realName").val();
 
-				if(parseInt(realName.substr(16, 1)) % 2 == 1)
-		        	var sex = "男";
-		        else
-		        	var sex = "女";
+				if($.trim(realName).length == 0) { 
+			        alert("身份证号码未输入！");
+			    } 
+			    else {
+			        if(isCardNo($.trim(realName)) == false) {
+			            alert("身份证格式错误！");
+			        }
+			        else {
+			        	alert("添加成功！");
+						closeWindow();
 
-		        var td1 = '<td id="infoName">' + name + '</td>';
-		        var td2 = '<td>' + sex + '</td>';
-		        var td3 = '<td id="infoRealName">' + realName + '</td>';
-		        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
+						if(parseInt(realName.substr(16, 1)) % 2 == 1)
+				        	var sex = "男";
+				        else
+				        	var sex = "女";
+
+				        var td1 = '<td id="infoName">' + name + '</td>';
+				        var td2 = '<td>' + sex + '</td>';
+				        var td3 = '<td id="infoRealName">' + realName + '</td>';
+				        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
 
 
-		        $("#name").val("");
-		        $("#realName").val("");
+				        $("#name").val("");
+				        $("#realName").val("");
 
-		        count ++;
-		        if(count == 0)
-					$("#noPerson").css("display", "block");
-				else
-					$("#noPerson").css("display", "none");
+				        count ++;
+				        if(count == 0)
+							$("#noPerson").css("display", "table-row");
+						else
+							$("#noPerson").css("display", "none");
 
-		        $("#tab").append("<tr id="+count+" align='center' height='15px' border-bottom='1px solid #000000'>"
-		        	+ td1
-		        	+ td2
-		        	+ td3
-		        	+ td4
-		        	+"</tr>");
-
+				        $("#tab").append("<tr id="+count+" align='center' height='15px' border-bottom='1px solid #000000'>"
+				        	+ td1
+				        	+ td2
+				        	+ td3
+				        	+ td4
+				        	+"</tr>");
+				    }
+			    }
 			}
+		}
+		
+		else if(option == 2){
+			var name = $("#name").val();
+			var realName = $("#realName").val();
+			var tabName = "#tab tr[id=" + nowId + "] td[id=infoName]";
+			var tabRealName = "#tab tr[id=" + nowId + "] td[id=infoRealName]";
+
+			$(tabName).text(name);
+			$(tabRealName).text(realName);
+			closeWindow();
+			
 		}
 		
 	}
 
+	//验证身份证是否合法
+	function isCardNo(card) {  
+	   var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
+	   return pattern.test(card); 
+	} 
 
 
 </script>
+
