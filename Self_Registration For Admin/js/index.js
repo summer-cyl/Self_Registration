@@ -1,13 +1,13 @@
-$('.hnunit').click(function() {
-	$(this).addClass('hnuclick').siblings().removeClass('hnuclick');
-	var address = $(this).attr('address');
-	$('#contentFrame').attr('src', address);
+$('.actions-btn li').click(function() {
+	$(this).addClass('green-on').siblings().removeClass('green-on');
 });
 
-$('#caselogin').click(function() {
-    $('#loginDiv').attr('style', 'display: block');
+$('.edit').click(function() {
+	$(this).parent().parent().siblings().find('input').removeAttr('disabled');
+	$('#pbgl-table select').removeAttr('disabled');
 });
 
-$('.closeihconpop').click(function() {
-    $('#loginDiv').attr('style', 'display: none');
+$('.confirm').click(function() {
+	$(this).parent().parent().siblings().find('input').attr('disabled', 'disabled');
+	$('#pbgl-table select').attr('disabled', 'disabled');
 });
