@@ -25,10 +25,10 @@ $('#login').click(function(){
     }
     $.ajax({
         type: "POST",
-        url: "/LoginDeal",
+        url: "/hospital/LoginDeal",
         data: "name=" + $("#userName").val().toString() + "&password=" + $("#password").val().toString(),
         success: function (data) {
-        	alert("成功！");
+        	alert(data);
             if (data == "1") {
                 $("#caselogin1").attr('style','display: none');
                 $("#caselogin2").attr('style','display: block');
@@ -45,5 +45,12 @@ $('#login').click(function(){
             }
         }
 
-    })
+    });
 });
+function logout()
+{
+	alert("登出成功");
+    $("#caselogin2").attr('style','display: none');
+    $("#caselogin1").attr('style','display: block');
+           
+}

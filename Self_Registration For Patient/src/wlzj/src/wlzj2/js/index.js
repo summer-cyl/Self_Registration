@@ -63,7 +63,7 @@ $('.adddoctor2').click(function() {
 var formTitle = "空白";
 $('.zkyy').click(function() {
 	formTitle=$('.zkyy').index(this);
-    window.location.href = "../zkmz2/index.html?formTitle="+formTitle;
+    window.location.href = "../zkmz2/index.jsp?formTitle="+formTitle;
 });
 $('.myyy').click(function() {
     window.location.href = "../zjyy2/index.html";

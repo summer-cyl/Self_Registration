@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" href="css/style.css">
-		<title>专科门诊-填写问诊信息</title>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="css/style.css">
+	<title>专科门诊-填写问诊信息</title>
 	</head>
 	<body>
 		<iframe id="c_iframe" height="0" width="0" src="../../index.html" style="display:none"></iframe>
@@ -15,14 +17,11 @@
 		    c_iframe.src = c_iframe.src + "#" + b_width + "|" + b_height
 			})(); 
 		</script>
-
-
 		<div class="content">
 			<div class="inthoscontent">
 				<div class="bigphofig">
 					<img src="image/speclinic.png">
 				</div>
-
 				<div class="clinicdetail">
 					<div class="clinicflowc">
 						<img src="image/docoppfc2.png">
@@ -79,13 +78,13 @@
 							<div class="paywaycheckout">
 								<input type="radio" class="paywaycheck" name="timeScope" disabled="disabled" value="1">
 							</div>
-							<span class="paywayname pyncant">上午</span>
+							<span id="morningTime" class="paywayname pyncant">上午</span>
 						</div>
 						<div class="vddtimechoose">
 							<div class="paywaycheckout pwchecked">
 								<input type="radio" class="paywaycheck" name="timeScope" checked="checked" value="2">
 							</div>
-							<span class="paywayname">下午</span>
+							<span  id="aftTime" class="paywayname pyncant">下午</span>
 						</div>
 					</div>
 				</div>

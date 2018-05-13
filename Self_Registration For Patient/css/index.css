@@ -3,6 +3,9 @@ html, body {
 	height: 100%;
 	margin: 0;
 }
+a {
+	text-decoration:none;
+}
 .hp-bg {
 	position: relative;
 	width: 100%;

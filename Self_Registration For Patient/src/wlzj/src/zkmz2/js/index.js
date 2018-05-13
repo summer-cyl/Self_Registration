@@ -145,7 +145,8 @@ $('.vddbutlast').click(function() {
 	window.location.href="../zkmz/index.html";
 });
 
-function GetRequest() {   
+function GetRequest() {  
+	   //科室的名称
 	   var url = location.search; 
 	   var theRequest = new Object();   
 	   if (url.indexOf("?") != -1) {   
@@ -156,7 +157,6 @@ function GetRequest() {
 	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
 	      }   
 	   } 
-	   alert(theRequest["formTitle"]);
 	   var title = new Array(
 			   "全科门诊",
 			   "肝病专科门诊",
@@ -174,7 +174,27 @@ function GetRequest() {
 			   "老年病科门诊"
 	   );
 	   $("#deptName").html(title[theRequest["formTitle"]]);
-	   return theRequest;   
+	   //更新时间
+	   var date = new Date();
+	   var h =  date.getHours();
+	   var time = "";
+	   if(h<10)
+		   time="0"+h;
+	   else time=h;
+	   time+=":";
+	   var m = date.getMinutes();
+	   if(m<10)
+		   time+="0";
+	   time+=m;
+	   if(time>="08:00"&&time<="12:00")
+	   {
+		   $("#morningTime").removeClass("pyncant");
+	   }
+	   if(time>="14:00"&&time<="17:30")
+	   {
+		   $("#aftTime").removeClass("pyncant"); 
+	   }
+		   
 }   
 GetRequest();
 
