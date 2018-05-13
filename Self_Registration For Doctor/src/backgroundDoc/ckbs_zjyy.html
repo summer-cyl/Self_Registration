@@ -5,11 +5,11 @@
 	<link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" type="text/css" href="yy/css/yy.css">
+    <link rel="stylesheet" type="text/css" href="yy/css/ckbs.css">
 </head>
 <body>
-	<title>专家预约</title>
-    <header class="am-topbar am-topbar-inverse admin-header">
+	<title>查看病史</title>
+     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
             <a href="javascript:;" class="tpl-logo">
                 <img src="assets/img/logo.png" alt="">
@@ -86,8 +86,8 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: block;">
                             <li>
-                                <a href="zjyy.html" class="zzyy active">
-                                    <i class="am-icon-angle-right active"></i>
+                                <a href="zjyy.html" class="zjyy active">
+                                    <i class="am-icon-angle-right"></i>
                                     <span>专家预约</span>
                                 </a>
                                 <a href="zxyy.html">
@@ -108,7 +108,6 @@
             </div>
         </div>
 
-
         <div class="tpl-content-wrapper">
             <div class="tpl-portlet-components">
                 <div class="tpl-block">
@@ -116,10 +115,13 @@
                         <div class="am-u-sm-12 am-u-md-3">
                             <div class="am-form-group">
                                 <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
-                                    <option value="option1">所有患者</option>
-                                    <option value="option2">1</option>
-                                    <option value="option3">2</option>
-                                    <option value="option3">3</option>
+                                    <option value="option1">所有科目</option>
+                                    <option value="option2">内科</option>
+                                    <option value="option3">小儿科</option>
+                                    <option value="option3">眼科</option>
+                                    <option value="option3">感染病科</option>
+                                    <option value="option3">内分泌科</option>
+                                    <option value="option3">妇科</option>
                                 </select>
                             </div>
                         </div>
@@ -138,33 +140,23 @@
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
                                         <tr>
-                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-id">ID</th>
-                                            <th class="table-title">手机号</th>
-                                            <!-- <th class="table-type">手机号</th> -->
-                                            <th class="table-author am-hide-sm-only">姓名</th>
-                                            <th class="table-date am-hide-sm-only">预约日期</th>
-                                            <th class="table-set">操作</th>
+                                            <th class="table-date am-hide-sm-only">看诊日期</th>
+                                            <th class="table-zkmz am-hide-sm-only">专科门诊</th>
+                                            <th class="table-author am-hide-sm-only">医生姓名</th>
+                                            <th class="table-title">诊断说明</th>
+                                            <th class="table-set">药品</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="checkbox"></td>
                                             <td>1</td>
-                                            <td class="phone_id">17816131950</td>
-                                            <td class="am-hide-sm-only">测试1号</td>
                                             <td class="am-hide-sm-only">2018年5月20日</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <div class="am-btn am-btn-default am-btn-xs am-text-secondary" id="more_btn">详细信息</div>
-                                                        <a class="am-btn am-btn-default am-btn-xs am-hide-sm-only" href="ckbs_zjyy.html">查看病史</a>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            <td class="am-hide-sm-only">内科</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td><a class="moreWin_btn">慢性胃炎</a></td>
+                                            <td><a class="medicine_btn">多潘立酮片</a></td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                                 <div class="am-cf">
@@ -180,8 +172,10 @@
                                     </div>
                                 </div>
                                 <hr>
+
                             </form>
                         </div>
+
                     </div>
                 </div>
                 <div class="tpl-alert"></div>
@@ -189,30 +183,39 @@
         </div>
 
     </div>
-	
-    <!-- 详细信息 -->
-    <div class="moreMessage" >
+
+    <!-- 诊断说明 -->
+    <div class="moreMessage">
     	<div class="cover"></div>
     	<div class="moreWin" >
 			<div class="moreWin-title">
-				<span>详细信息</span>
+				<span>详细诊断说明</span>
 				<img class="moreWin-img" src="yy/image/cross.png" width="20px" height="20px;">
 			</div>
 		
 			<div class="moreMessage-content">
-				<div>姓名：<span class="patient_name">患者1号</span></div>
-                <div>性别：<span class="patient_sex">女</span></div>
-                <div>年龄：<span class="patient_name">38岁</span></div>
-				<div>联系方式：<span class="patient_phone">1786131950</span></div>
-				<div>预约日期：<span class="order_time">2018年5月20日</span></div>
-				<div>住址：<span class="patient_address">杭州师范大学仓前校区</span></div>
+				<div>详细说明：<span class="more_description">慢性胃炎</span></div>
 			</div>
 		</div>
+    </div>
+    <!-- 处方药 -->
+    <div class="medicine">
+        <div class="cover"></div>
+        <div class="moreWin" >
+            <div class="moreWin-title">
+                <span>药品</span>
+                <img class="medicine-img" src="yy/image/cross.png" width="20px" height="20px;">
+            </div>
+        
+            <div class="medicine-content">
+                <div>药品：<span class="medicine_description">多潘立酮片</span></div>
+            </div>
+        </div>
     </div>
 	
 </body>
 	<script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
-	<script src="yy/js/yy.js"></script>
+	<script src="yy/js/ckbs.js"></script>
 </html>
