@@ -1,0 +1,15 @@
+.actions-btn li {
+	margin: 5px 5px;
+	height: 35px;
+	line-height: 25px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.am-selected {
+	width: 100px;
+}
+
+input {
+	outline: none;
+}

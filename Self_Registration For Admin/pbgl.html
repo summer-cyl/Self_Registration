@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="assets/js/echarts.min.js"></script>
+
+</head>
+
+<body data-type="index">
+
+
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <a href="javascript:;" class="tpl-logo">
+                <img src="assets/img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <ul class="am-dropdown-content tpl-dropdown-content">
+                        <li>
+                            <a href="#" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                                    <img src="assets/img/user02.png" alt=""> 
+                                </span>
+                                <span class="tpl-dropdown-content-subject">
+                                    <span class="tpl-dropdown-content-from"> 禁言小张 </span>
+                                    <span class="tpl-dropdown-content-time">10分钟前 </span>
+                                </span>
+                                <span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+                            </a>
+                            <a href="#" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                                    <img src="assets/img/user03.png" alt=""> 
+                                </span>
+                                <span class="tpl-dropdown-content-subject">
+                                    <span class="tpl-dropdown-content-from"> Steam </span>
+                                    <span class="tpl-dropdown-content-time">18分钟前</span>
+                                </span>
+                                <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+                        <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="###" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+        <div class="tpl-left-nav tpl-left-nav-hover">
+            <div class="tpl-left-nav-title">
+                Amaze UI 列表
+            </div>
+            <div class="tpl-left-nav-list">
+                <ul class="tpl-left-nav-menu">
+
+                    <li class="tpl-left-nav-item">
+                        <a href="index.html" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-key"></i>
+                            <span>个人管理</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="index.html" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>医生管理</span>
+                        </a>
+                    </li>
+                    
+                    <li class="tpl-left-nav-item">
+                        <a href="pbgl.html" class="nav-link active">
+                            <i class="am-icon-home"></i>
+                            <span>排班管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tpl-content-wrapper">
+            <div class="row">
+                <div class="am-u-sm-12 row-mb">
+                    <div class="tpl-portlet" style="height: 700px;">
+                        <div class="tpl-portlet-title">
+                            <div class="tpl-caption font-red " style="width: 100%;">
+                                <i class="am-icon-bar-chart"></i>
+                                <span>排班科室选择</span>
+                            </div>
+                            <div class="actions" style="float: left;">
+                                <ul class="actions-btn">
+                                    <li class="green green-on">A科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                    <li class="green">B科</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tpl-scrollable">
+                            <!-- <div class="number-stats">
+                                <div class="stat-number am-fl am-u-md-6">
+                                    <div class="title am-text-right"> Total </div>
+                                    <div class="number am-text-right am-text-warning"> 2460 </div>
+                                </div>
+                                <div class="stat-number am-fr am-u-md-6">
+                                    <div class="title"> Total </div>
+                                    <div class="number am-text-success"> 2460 </div>
+                                </div>
+                            </div> -->
+
+                            <table class="am-table tpl-table" id="pbgl-table">
+                                <thead>
+                                    <tr class="tpl-table-uppercase">
+                                        <th>专家</th>
+                                        <th>预约类型</th>
+                                        <th>上午预约数量</th>
+                                        <th>下午预约数量</th>
+                                        <th>价格</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 250px;">
+                                            <img src="assets/img/user01.png" alt="" class="user-pic">
+                                            <a class="user-name" href="###">禁言小张</a>
+                                        </td>
+                                        <td style="width: 150px;">
+                                            <div class="am-form-group" style="margin-bottom: 0">
+                                                <select data-am-selected="{btnSize: 'sm'}">
+                                                    <option value="option1">专家坐诊</option>
+                                                    <option value="option2">在线咨询</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="morNum">
+                                        </td>
+                                        <td class="font-green bold" style="width: 140px;" name="afterNum">
+                                            <input type="text" style="width: 80px;">
+                                        </td>
+                                        <td style="width: 140px;">
+                                            <input type="text" style="width: 80px;" name="price">
+                                        </td>
+                                        <td style="width: 135px;">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    编辑
+                                                </button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary confirm" style="width: 60px; padding: 6px;">
+                                                    <span class="am-icon-pencil-square-o"></span> 
+                                                    确认
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/iscroll.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
