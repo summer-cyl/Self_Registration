@@ -62,7 +62,7 @@ div {
     top:50%;
     margin-top: -8px;
 }
-.moreMessage {
+.moreMessage , .ckbs{
     display: none;
     position: absolute;
     flex-direction: row;
