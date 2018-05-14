@@ -18,7 +18,7 @@ input {
 }
 
 a {
-    color: #337ab7;
+    color: rgb(143, 187, 28);
 }
 
 a:hover {
@@ -37,7 +37,7 @@ a:hover {
 }
 
 .am-topbar-brand {
-    color: #337ab7;
+    color: rgb(143, 187, 28);
     margin-right: 20px;
 }
 
@@ -98,7 +98,7 @@ ul.am-dropdown-content>li>a {
 }
 
 .admin-sidebar-list li a {
-    color: #485a6a;
+    color: #697882;
     font-size: 14px;
 }
 
@@ -152,12 +152,11 @@ ul.am-dropdown-content>li>a {
 }
 
 .tpl-header-list-user-nick {
-    color: #7FB0DA;
+    color: #000;
+    font-size: 18px;
 }
 
-.tpl-header-list-user-nick {
-    color: #7FB0DA;
-}
+
 
 .tpl-header-list-user-ico img {
     margin-left: 5px;
@@ -338,7 +337,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     line-height: 20px;
     color: #fff;
     text-align: center;
-    background-color: #337ab7;
+    background-color: rgb(143, 187, 28);
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     -webkit-transition: width 0.6s ease;
@@ -372,7 +371,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 .tpl-page-container-nav-heading {
     height: 50px;
     padding: 25px 15px 10px;
-    color: #5C9ACF;
+    color: rgb(143, 187, 28);
     font-size: 13px;
     font-weight: 600;
 }
@@ -412,28 +411,28 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-sidebar-list li.tpl-sidebar-list-hover:hover a,
 .tpl-sidebar-list li.tpl-sidebar-list-hover.active a {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-sidebar-list li.tpl-sidebar-list-hover:hover .tpl-page-container-ico,
 .tpl-sidebar-list li.tpl-sidebar-list-hover.active .tpl-page-container-ico {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-sidebar-list li.tpl-sidebar-list-hover:hover,
 .tpl-sidebar-list li.tpl-sidebar-list-hover.active {
     background: #f2f6f9;
-    border-left: 3px solid #5C9ACF!important;
+    border-left: 3px solid rgb(143, 187, 28)!important;
 }
 
 .tpl-sidebar-list-hover-show .tpl-sidebar-list-hover-show-font:hover,
 .tpl-sidebar-list-hover-show .tpl-sidebar-list-hover-show-font:hover .tpl-page-container-ico {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-sidebar-list-hover-show.active .tpl-sidebar-list-hover-show-font,
 .tpl-sidebar-list-hover-show.active .tpl-sidebar-list-hover-show-font .tpl-page-container-ico {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-sidebar-list-hover-show:hover,
@@ -450,7 +449,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .admin-sidebar-sub li:hover a,
 .admin-sidebar-sub li.active a {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-topbar-list-button {
@@ -490,7 +489,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 .tpl-left-nav-title {
     height: 50px;
     padding: 25px 15px 10px;
-    color: #5C9ACF;
+    color: rgb(143, 187, 28);
     font-size: 13px;
     font-weight: 600;
 }
@@ -509,7 +508,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     padding: 12px 15px;
     padding-top: 6px;
     text-decoration: none;
-    color: #485a6a;
+    color: #697882;
     font-size: 14px;
 }
 
@@ -517,7 +516,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 .tpl-left-nav-sub-menu a span {
     font-size: 14px;
     font-weight: 400;
-    color: #485a6a;
+    color: #697882;
 }
 
 .tpl-left-nav-item .nav-link i,
@@ -534,24 +533,24 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-left-nav-item .nav-link:hover {
     background: #f2f6f9;
-    color: #5b9bd1;
-    border-left: 3px solid #5C9ACF!important;
+    color: rgb(143, 187, 28);
+    border-left: 3px solid rgb(143, 187, 28)!important;
     margin-left: -3px;
     padding-left: 15px;
 }
 
 .tpl-left-nav-item .nav-link:hover i,
 .tpl-left-nav-sub-menu a:hover i {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-left-nav-item .nav-link:hover span,
 .tpl-left-nav-sub-menu a:hover span {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-left-nav-item .nav-link.active {
-    border-left: 3px solid #5C9ACF!important;
+    border-left: 3px solid rgb(143, 187, 28)!important;
     background: #f2f6f9;
     margin-left: -3px;
     padding-left: 15px;
@@ -559,7 +558,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-left-nav-item .nav-link.active span,
 .tpl-left-nav-item .nav-link.active i {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
 }
 
 .tpl-left-nav-sub-menu {
@@ -600,13 +599,13 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 
 .tpl-left-nav-sub-menu a:hover,
 .tpl-left-nav-sub-menu a.active {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
     background: #f2f6f9!important;
 }
 
 .tpl-left-nav-sub-menu a.active i,
 .tpl-left-nav-sub-menu a.active span {
-    color: #5b9bd1;
+    color: rgb(143, 187, 28);
     background: #f2f6f9!important;
 }
 
@@ -775,7 +774,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .dashboard-stat.green {
-    background-color: #32c5d2;
+    background-color: #697882;
 }
 
 .dashboard-stat.purple {
@@ -891,7 +890,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .font-green {
-    color: #32c5d2!important;
+    color: #697882!important;
 }
 
 .font-red {
@@ -941,16 +940,16 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .actions-btn li.green {
-    border-color: #32c5d2;
-    color: #32c5d2;
+    border-color: #697882;
+    color: #697882;
     background: 0 0;
 }
 
 .actions-btn li.green:hover,
 .actions-btn li.green-on {
-    border-color: #32c5d2;
+    border-color: #697882;
     color: #FFF;
-    background-color: #32c5d2;
+    background-color: #697882;
 }
 
 .actions-btn li.purple {
@@ -1066,7 +1065,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .font-green {
-    color: #32c5d2!important;
+    color: #697882!important;
 }
 
 .caption-helper {
@@ -1099,7 +1098,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .input-icon>i {
-    color: #ccc;
+    color: #697882;
     position: absolute;
     margin-top: 2px;
     z-index: 3;
