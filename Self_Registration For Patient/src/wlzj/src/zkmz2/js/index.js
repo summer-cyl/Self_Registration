@@ -1,3 +1,4 @@
+var departId = 1;
 function chooseClick(mainType){
 // }
 // $('.medhischoose a').click(function() {
@@ -22,7 +23,7 @@ function chooseClick(mainType){
     }
     
     if (history != "无") {
-        // alert(historys);
+        //alert(historys);
         var historys = history.split("、");
         // $(".in-label input").removeAttr("checked");
         for (var i = 0; i < historys.length; i++) {
@@ -49,68 +50,109 @@ $('.closeihconpop').click(function() {
 });
 
 function saveMedicalHistory(mainType) {
-    var str="";
-    if(mainType != "婚育史"){
-        $("input[type='checkbox']:checked").each(function(){
-            var ss=$(this).parents(".in-label").text();
-            str += ss+"、";
-            // alert(ss);
-        });
-
-        var others = "";
-        if (mainType == "既往史") {
-            others = $("#others1").val();
-        } else if (mainType == "过敏史") {
-            others = $("#others3").val();
-        } else if (mainType == "家族史") {
-            others = $("#others4").val();
-        } else if (mainType == "个人习惯") {
-            others = $("#others5").val();
-        }
-        // alert("others: " + others);
-        if(others!=""){
-            str += others;
-        }
-        $("input[type='checkbox']:checked").each(function(){
-            $(".in-label input").attr("checked",false);
-        });
-    }else{
-        $("input[type='radio']:checked").each(function(){
-            var ss ="";
-            ss=$(this).parents(".in-label").text();
-            str += ss+"、";
-        });
-    }
-    if(mainType == "婚育史" && str == ""){
-        alert("请选择婚姻及生育状况！");
-        return;
-    }
-    if(str==""){
-        str="无";
-    }
-    if(str.length>1){
-        if(str.substring(str.length - 1) == "、"){
-            str=str.substring(0,str.length-1);
-        }
-    }
-    
-    if (mainType != undefined) {
-        if (mainType == "既往史") {
-            $("#pastMedicalHistory").text(str);
-        } else if (mainType == "婚育史") {
-            $("#obstetricalHistory").text(str);
-        } else if (mainType == "过敏史") {
-            $("#allergicHistory").text(str);
-        } else if (mainType == "家族史") {
-            $("#familyMedicalHistory").text(str);
-        } else if (mainType == "个人习惯") {
-            $("#personalHabits").text(str);
-        }
-    }
-    $('.inthospopup').css('display', 'none');
-
-    // 高度
-    $("#contentFrame", top.document).height($(".content").height());
+	if(mainType=="既往史")
+	{
+		var inputDe = document.getElementsByName("illness");
+		var ansInput = "";
+		for(var i=0;i<inputDe.length;i++)
+		{
+			if(inputDe[i].checked)
+			{
+				ansInput+=inputDe[i].value+" ";
+			}
+		}
+		var text = $("#others1").val();
+		if(ansInput==""&&text=="")
+			text="无";
+		$("#pastMedicalHistory").text(ansInput+" "+text);
+	}
+	else if(mainType=="婚育史")
+	{
+		var ansInput = "";
+		var isMarried = $('#wrap input[name="radio1"]:checked ').val();
+		if(isMarried==0)
+			ansInput += "已婚 ";
+		else 
+			ansInput += "未婚 ";
+		var isPreg = $('#wrap input[name="radio2"]:checked ').val();
+		if(isPreg==0)
+		{	
+			ansInput += "未生育 ";
+		}
+		else if(isPreg==1)
+		{	
+			ansInput += "备孕期 ";
+		}
+		else if(isPreg==2)
+		{
+			ansInput += "怀孕期 ";
+		}
+		else
+		{
+			ansInput += "已生育 ";
+		}
+		var text = $("#others2").val();
+		if(ansInput==""&&text=="")
+			text="无";
+		$("#obstetricalHistory").text(ansInput+" "+text);
+	}
+	else if(mainType=="过敏史")
+	{
+		var ansInput="";
+		var med = document.getElementsByName("medecine");
+		for(var i=0;i<med.length;i++)
+		{
+			if(med[i].checked)
+			{
+				ansInput+=med[i].value+" ";
+			}
+		}
+		var food = document.getElementsByName("food");
+		for(var i=0;i<food.length;i++)
+		{
+			if(food[i].checked)
+			{
+				ansInput+=food[i].value+" ";
+			}
+		}
+		var text = $("#others3").val();
+		if(ansInput==""&&text=="")
+			text="无";
+		$("#allergicHistory").text(ansInput+" "+text);
+	}
+	else if(mainType=="家族史")
+	{
+		var ansInput="";
+		var family = document.getElementsByName("family");
+		for(var i=0;i<family.length;i++)
+		{
+			if(family[i].checked)
+			{
+				ansInput+=family[i].value+" ";
+			}
+		}
+		var text = $("#others4").val();
+		if(ansInput==""&&text=="")
+			text="无";
+		$("#familyMedicalHistory").text(ansInput+" "+text);
+	}
+	else if(mainType=="个人习惯")
+	{
+		var ansInput = "";
+		var habit = document.getElementsByName("habit");
+		for(var i=0;i<habit.length;i++)
+		{
+			if(habit[i].checked)
+			{
+				ansInput+=habit[i].value+" ";
+			}
+		}
+		var text = $("#others5").val();
+		if(ansInput==""&&text=="")
+			text="无";
+		$("#personalHabits").text(ansInput+" "+text);
+	}
+	$(".inthospopup").attr('style','display:none');
 }
 function getLink() {
     var length = $('.addMan').children('span').length;
@@ -134,10 +176,27 @@ function save()
         alert("有输入为空！请输入！");
     }
     else {
-        $(".morecase").before("<span class='ihcasename' > " + nameStr + "</span>");
-        $("#name2").val("");
-        $("#idCard2").val("");
-        $('.inthospopup').css('display', 'none');
+    	$.ajax({
+            type: "POST",
+            url: "/hospital/AddContactDeal",
+            data: "contactName=" + nameStr + "&contactId=" + cardStr,
+            success: function (data) {
+            	if(data=="1")
+            	{
+            		$(".morecase").before("<span class='ihcasename' > " + nameStr + "</span>");
+            		$('.ihcasename').on("click",(addPeople));
+                    $("#name2").val("");
+                    $("#idCard2").val("");
+                    $('.inthospopup').css('display', 'none');
+            	}
+            	else
+            	{
+            		alert("请重新提交");
+            	}
+            }
+
+        });
+   
     } 
 }
 
@@ -173,28 +232,190 @@ function GetRequest() {
 			   "孕妇课堂",
 			   "老年病科门诊"
 	   );
+	   
 	   $("#deptName").html(title[theRequest["formTitle"]]);
-	   //更新时间
-	   var date = new Date();
-	   var h =  date.getHours();
-	   var time = "";
-	   if(h<10)
-		   time="0"+h;
-	   else time=h;
-	   time+=":";
-	   var m = date.getMinutes();
-	   if(m<10)
-		   time+="0";
-	   time+=m;
-	   if(time>="08:00"&&time<="12:00")
-	   {
-		   $("#morningTime").removeClass("pyncant");
-	   }
-	   if(time>="14:00"&&time<="17:30")
-	   {
-		   $("#aftTime").removeClass("pyncant"); 
-	   }
-		   
+	   departId = theRequest["formTitle"];
+	   console.log(theRequest);
 }   
 GetRequest();
+var  time = -1;
+$("#submitBtn").click(function(){
+	var checked=true;
+	var patient = new Object();
+	//获取姓名
+	patient.name = $("#patientName").val();
+	if(patient.name==""||patient.name==null||patient.name==undefined)
+		checked=false;
+	//获取号码
+	patient.tel = $("#phone").val();
+	if(patient.tel==""||patient.tel==null||patient.tel==undefined)
+		checked=false;
+	//身份证
+	patient.id = $('#idCard').val();
+	if(patient.id==""||patient.id==null||patient.id==undefined)
+		checked=false;
+	//获取时间
+	patient.time = time;
+	if(patient.time==-1)
+		checked=false;
+	//获取病情的描述
+	patient.desease = $("#diseaseDescription").val();
+	//获取选项
+	var inputDe = document.getElementsByName("illness");
+	var ansInput = "疾病历史:";
+	for(var i=0;i<inputDe.length;i++)
+	{
+		if(inputDe[i].checked)
+		{
+			ansInput+=inputDe[i].value+" ";
+		}
+	}
+	ansInput+="\n";
+	ansInput+="婚姻情况:";
+	var isMarried = $('#wrap input[name="radio1"]:checked ').val();
+	if(isMarried==0)
+		ansInput += "已婚 ";
+	else 
+		ansInput += "未婚 ";
+	var isPreg = $('#wrap input[name="radio2"]:checked ').val();
+	if(isPreg==0)
+	{	
+		ansInput += "未生育 ";
+	}
+	else if(isPreg==1)
+	{	
+		ansInput += "备孕期 ";
+	}
+	else if(isPreg==2)
+	{
+		ansInput += "怀孕期 ";
+	}
+	else
+	{
+		ansInput += "已生育 ";
+	}
+	ansInput+="\n";
+	ansInput+="药物过敏历史:";
+	var med = document.getElementsByName("medecine");
+	for(var i=0;i<med.length;i++)
+	{
+		if(med[i].checked)
+		{
+			ansInput+=med[i].value+" ";
+		}
+	}
+	var food = document.getElementsByName("medecine");
+	ansInput+="\n";
+	ansInput+="食物过敏历史:";
+	for(var i=0;i<food.length;i++)
+	{
+		if(food[i].checked)
+		{
+			ansInput+=food[i].value+" ";
+		}
+	}
+	ansInput+="\n";
+	ansInput+="家族病史:";
+	var family = document.getElementsByName("family");
+	for(var i=0;i<family.length;i++)
+	{
+		if(family[i].checked)
+		{
+			ansInput+=family[i].value+" ";
+		}
+	}
+	ansInput+="\n";
+	ansInput+="个人习惯:";
+	var habit = document.getElementsByName("habit");
+	for(var i=0;i<habit.length;i++)
+	{
+		if(habit[i].checked)
+		{
+			ansInput+=habit[i].value+" ";
+		}
+	}
+	ansInput+="\n";
+	ansInput+="额外的描述:";
+	$(".uploadother").each(function(){
+		ansInput+=$(this).val()+" ";
+	});
+	ansInput+=" ";
+	patient.history = ansInput;
+	patient.departId = departId;
+	console.log(patient);
+	$.ajax({
+        type: "POST",
+        url: "/hospital/PreSepOrderDeal",
+        data : "patient="+JSON.stringify(patient),    
+        success: function (data) {
+    	if(data=="1")
+    		alert("挂号成功!");
+    	else
+    		alert("挂号失败!");
+        }
+    });
+});
+time=-1;
+function morningClick(valid)
+{
+	if(valid)
+	{
+		$("#morningClick").addClass("pwchecked");
+		$("#aftClick").removeClass("pwchecked");
+		time=0;
+	}
+}
+function aftClick(valid)
+{
+	if(valid)
+	{
+		if(valid)
+		{
+			$("#morningClick").removeClass("pwschecked");
+			$("#aftClick").addClass("pwchecked");
+			time=0;
+		}
+	}
+}
+var dataObj;
+function PageAddContact()
+{
+	$.ajax({
+        type: "POST",
+        url: "/hospital/ContactLoad",
+        success: function (data) {
+        	var dataObj = eval("("+data+")");
+        	for(var i=0;i<dataObj.length;i++)
+    		{
+        		$(".morecase").before("<span class='ihcasename' > " + dataObj[i].name + "</span>");
+        		$('.ihcasename').on("click",(addPeople));
+    		}
+        }
 
+    });
+}
+$('.ihcasename').click(addPeople);
+function addPeople (){
+	var text = $(this).html().toString();
+	$("#patientName").val(text);
+	$.ajax({
+        type: "POST",
+        url: "/hospital/ContactReadID",
+        data:"patiantname="+text,
+        success: function (data) {
+        	console.log(data);
+        	var dataObj = eval("("+data+")");
+        	if(text.indexOf("本人")>=0)
+    		{
+        		$("#patientName").val(dataObj.name);
+                $('#idCard').val(dataObj.id);
+    		}
+        	else
+        	{
+        		$('#idCard').val(dataObj.id);
+        	}		
+        }
+
+    });
+}
+PageAddContact();

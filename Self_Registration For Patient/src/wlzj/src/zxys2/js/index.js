@@ -144,4 +144,6 @@ function save()
 $('.vddbutlast').click(function() {
     window.location.href = "../zxys/index.html";
 });
-
+$("#submitBtn").click(function(){
+	
+});

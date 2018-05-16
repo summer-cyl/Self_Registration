@@ -1,4 +1,5 @@
 $('.zkyy').click(function() {
-	window.location.href="../zkmz2/index.html";
+	formTitle=$('.zkyy').index(this);
+    window.location.href = "../zkmz2/index.jsp?formTitle="+formTitle;
 });
 

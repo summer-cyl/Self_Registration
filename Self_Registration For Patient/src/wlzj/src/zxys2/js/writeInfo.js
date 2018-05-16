@@ -41,19 +41,6 @@ $(document).ready(function() {
 		dataType: "json"
 	});
 	
-	$("#submitBtn").click(check);
-	
-	$(".vddtimechoose").click(function(){
-		$("#yySchedule").val($(this).find("input[name='timeScope']").val());
-		
-		if($(this).children(".paywaycheckout").hasClass("pwchecked") || $(this).children(".paywayname").hasClass("pyncant"))
-			return;
-		else
-			$(".paywaycheckout").removeClass("pwchecked");
-		$(".paywaycheckout").children(".paywaycheck").removeAttr("checked","checked");
-		$(this).children(".paywaycheckout").addClass("pwchecked");
-		$(".pwchecked").children(".paywaycheck").attr("checked","checked");
-	})
 	
 	refreshImg();
 	setInterval(refreshImg, 5000);
