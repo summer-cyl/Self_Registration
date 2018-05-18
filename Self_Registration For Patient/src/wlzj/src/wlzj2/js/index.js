@@ -9,7 +9,7 @@ var mySwiper = new Swiper('.swiper-container', {
     autoplayDisableOnInteraction: true, 
     loop: true,
 });
-
+var departId 
 $(".swiper-container").on("focusout", function(){
     setTimeout(function() {
         if($(this).find(":focus").length === 0){
@@ -66,7 +66,7 @@ $('.zkyy').click(function() {
     window.location.href = "../zkmz2/index.jsp?formTitle="+formTitle;
 });
 $('.myyy').click(function() {
-    window.location.href = "../zjyy2/index.html";
+    window.location.href = "../zjyy2/index.jsp?formTile";
 });
 $('.zxys').click(function() {
     window.location.href = "../zxys2/index.html";

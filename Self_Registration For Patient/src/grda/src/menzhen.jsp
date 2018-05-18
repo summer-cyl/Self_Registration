@@ -1,13 +1,60 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="javatools.AccessDB,net.sf.json.JSONArray,net.sf.json.JSONObject,java.sql.ResultSet"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
+<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" href="index.css">
-		<title>个人资料</title>
+		<title>网络诊间</title>
+		<style type="text/css">
+		   table{
+		       margin:auto;
+		       margin-top:50px;
+		       border:0;
+		       cellspacing:0;
+		       cellpadding:0;
+		   }
+		            
+		   table tr{
+		   
+		        border:none;
+		        padding:0;
+		        margin:0;
+		   }
+		   td {
+	       text-align:center;
+	       border:none;
+		   	margin:0;
+		   	padding:0;
+		   	width:150px;
+		   }
+	
+			.tableTitle {
+				background-color:#3385FF;
+				font-size:16px;
+				color:white;
+			}
+			.tableTitle td{
+				height:35px;
+				text-align:center;
+			} 
+			.tableContent:nth-child(even){
+			    font-size:15px;
+				background-color:white;
+				color:#9f9f9f;	
+				height:30px;
+			}
+			.tableContent:nth-child(odd){
+			    font-size:15px;
+				background-color:#7ba6e0;
+				color:white;
+				height:30px;	
+			}
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
-		<div id="header" class="header">
+	<div id="header" class="header">
 			<div class="headtop">
 				<div class="hosplogo">
 					<img src="image/icon1.png">
@@ -49,36 +96,82 @@
 		</div>
 		<div class="headnavarea" id="headnavarea">
 			<div class="headnav">
-				<a href="info.html"><span class="hnunit hnuclick">个人资料</span></a>
-				<a href="menzhen.jsp"><span class="hnunit">门诊记录</span></a>
-				<a onclick="building();return false;"><span class="hnunit">处方记录</span></a>
-				<a href="jiancha.html"><span class="hnunit">检查记录</span></a>
-				<a href="huanyuan.html"><span class="hnunit">检验记录</span></a>
-				<a onclick="building();return false;"><span class="hnunit">住院记录</span></a>
+				<a href="info.html"><span id="wlzj" class="hnunit">个人资料</span></a>
+				<a href="menzhen.html"><span id="zk" class="hnunit hnuclick">门诊记录</span></a>
+				<a onclick="building();return false;"><span id="my" class="hnunit">处方记录</span></a>
+				<a href="jiancha.html"><span id="zxys" class="hnunit">检查记录</span></a>
+				<a href="huanyuan.html"><span id="helpCenter" class="hnunit">检验记录</span></a>
+				<a onclick="building();return false;"><span id="personalCenter" class="hnunit">住院记录</span></a>
 			</div>
 		</div>
-        
-		<div id="content" class="personal-data" style="height: 450px;">
-			<p>个人资料</p>
-			<table class="data-info" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td style="width: 50%"><span class="data-th">姓名：</span><span id="name"></span></td>
-					<td style="width: 50%"><span class="data-th">性别：</span><span id="sex"></span></td>
-				</tr>
-				<tr>
-					<td><span class="data-th">出生日期：</span><span id="birth"></span></td>
-					<td><span class="data-th">年龄：</span><span id="age"></span></td>
-				</tr>
-				<tr>
-					<td><span class="data-th">身份证号：</span><span id="idCardNum"></span></td>
-					<td><span class="data-th">家庭住址：</span><span id="homePlace"></span></td>
-				</tr>
-				<tr>
-					<td><span class="data-th">手机号码：</span><span id="tel"></span></td>
-					<td></td>
-				</tr>
-			</table>
-
+		
+		<div id="content" class="personal-data" style="height: 50px;">
+			<table cellspacing="0">
+		  		<tr class="tableTitle">
+			  		<td>
+			  			患者姓名
+			  		</td>
+			  		<td>
+			  			患者身份证
+			  		</td>
+			  		<td>
+			  			科室名称
+			  		</td>
+			  		<td>
+			  			有效日期
+			  		</td>
+		  		</tr>
+		  		<%
+				String id = (String)session.getAttribute("Userid");
+				String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+"666666"+"'" +
+				"order by validDay desc";
+				AccessDB db = new AccessDB();
+				ResultSet resultSet = db.excueteQuery(select);
+				JSONArray jsonArray = new JSONArray();
+				JSONObject jsonObject = null;
+				try {
+					while(resultSet!=null&&resultSet.next())
+					{
+						jsonObject = new JSONObject();
+						String name = resultSet.getString("name");
+						jsonObject.put("name",name);
+						String patientId = resultSet.getString("patientId");
+						jsonObject.put("patientId",patientId);
+						String departName = resultSet.getString("department.name");
+						jsonObject.put("departName",departName);
+						int isMorning = resultSet.getInt("isMorning");
+						String ans = "上午";
+						if(isMorning==1)
+							ans = "下午";
+						String validday = resultSet.getString("validday");
+						jsonObject.put("validday",validday+" "+ans);
+						jsonArray.put(jsonObject);
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+		  	%>
+		  	<%for(int i=0;i<jsonArray.length();i++){ %>
+		  		<tr class="tableContent">
+		  			<td>
+		  				<%=((JSONObject)jsonArray.get(i)).get("name")%>
+		  			</td>
+		  			<td> 
+		  			    <%=((JSONObject)jsonArray.get(i)).get("patientId")%>
+		  			</td>
+		  			<td> 
+		  			    <%=((JSONObject)jsonArray.get(i)).get("departName")%>
+		  			</td>
+		  			<td>
+		  			    <%=((JSONObject)jsonArray.get(i)).get("validday")%>
+		  			</td>
+		  		</tr>
+		  	<%}%>
+		  </table>
+			
+			
 			<div class="rightnav">
 				<a href="">
 					<div class="rnbut" style="margin-bottom: 15px;">
@@ -88,7 +181,6 @@
 			</div>
 
 		</div>
-		
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="index.js"></script>
@@ -151,3 +243,4 @@
 	});
 	</script>
 </html>
+
