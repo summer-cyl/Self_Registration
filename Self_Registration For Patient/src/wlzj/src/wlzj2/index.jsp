@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="javatools.AccessDB,java.sql.ResultSet,java.util.Date,java.util.Calendar,java.text.SimpleDateFormat"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -184,27 +186,61 @@
 								<div class="dlcliname">科室筛选</div>
 								<div class="dlclidet dept">
 									<span class="dlcldc">全部科室</span>
-									<span>血液病科专家门诊</span>
-									<span>肾脏病专家门诊</span>
-									<span>皮肤科专家门诊</span>
-									<span>骨髓移植中心</span>
-									<span>肝胆胰外科专家门诊</span>
-									<span>呼吸内科专家门诊</span>
-									<span>消化内科专家门诊</span>
-									<span>全科医疗专家门诊</span>
-									<span>妇科专家门诊</span>
-									<span>心血管内科专家门诊</span>
-									<span>骨科专家门诊</span>
+									<% 
+										AccessDB db = new AccessDB();
+									    ResultSet res = db.excueteQuery("select name from department order by id asc");
+									    while(res!=null&&res.next())
+									    {
+									%>   
+									    <span class="departName"><%=res.getString("name")%></span>
+									<%
+									    }
+									%>
 								</div>
 							</div>
 							<div class="dlctr">
 								<div class="dlcliname">就诊日期</div>
 								<div class="dlclidet day">
-									<span class="dlcldc">5月11日</span>
-									<span>5月14日</span>
-									<span>5月15日</span>
-									<span>5月16日</span>
-									<span>5月17日</span>
+								    <%
+								    Date date = new Date();  
+							        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+							        String specifiedDay = sdf.format(date);
+							        
+							        Calendar c = Calendar.getInstance();  
+							     
+							        c.setTime(date);  
+							        int day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 1);  
+							  
+							        String dayAfter = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime()); 
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 1);  
+							  
+							        String dayAfter1 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 1);  
+							        String dayAfter2 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 1);  
+							        String dayAfter3 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							    	//选中的按钮的样式 pwchecked
+							        %>
+									<span class="dlcldc"><%=specifiedDay%></span>
+									<span><%=dayAfter%></span>
+									<span><%=dayAfter1%></span>
+									<span><%=dayAfter2%></span>
+									<span><%=dayAfter3%></span>
 								</div>
 							</div>
 							<div class="dlctr">
@@ -309,4 +345,5 @@
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src='js/swiper.min.js'></script>
 	<script src="js/index.js"></script>
+	
 </html>

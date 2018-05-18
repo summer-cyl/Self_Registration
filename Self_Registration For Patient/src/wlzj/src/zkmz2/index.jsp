@@ -89,7 +89,6 @@
 							    	time = time + M;
 							    	Boolean isMorning = false;
 							    	Boolean isAft = false;
-							    	time="15:00";
 							    	if(time.compareTo("08:00")>=0&&time.compareTo("12:00")<=0)
 							    	{
 							    		isMorning=true;
