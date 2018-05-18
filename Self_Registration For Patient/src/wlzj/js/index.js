@@ -49,8 +49,15 @@ $('#login').click(function(){
 });
 function logout()
 {
-	alert("登出成功");
-    $("#caselogin2").attr('style','display: none');
-    $("#caselogin1").attr('style','display: block');
+	 $.ajax({
+	        type: "POST",
+	        url: "/hospital/LogoutDeal",
+	        success: function (data) {
+	        	alert("登出成功");
+	            $("#caselogin2").attr('style','display: none');
+	            $("#caselogin1").attr('style','display: block');
+	        }
+
+	    });
            
 }

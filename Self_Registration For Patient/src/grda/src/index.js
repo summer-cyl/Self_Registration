@@ -11,3 +11,14 @@ $(function(){
 function building(){
 	alert("该功能正在建设中！");
 }
+function loadPersonInfo()
+{
+	$.ajax({
+        type: "POST",
+        url: "/hospital/PersonInfoLoad",
+        success: function (data) {
+        	
+        }
+
+    });
+}

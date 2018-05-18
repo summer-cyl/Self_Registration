@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="javabean.PersonInfo,javatools.AccessDB"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
+<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<title>网络诊间</title>
 	</head>
 	<body>
 		<div id="userInfoDiv">
+		<form action="" method="post">
 			<div class="addPerson">用户信息</div>
-
 			<div class="addCon formDiv" style="width:90%;">
 				<ul class="vaildcardul">
 					<li>
@@ -16,55 +18,78 @@
 							<span style="color:red">*</span>
 						    真实姓名：
 						</label>
-						<input type="text" id="realName" class="dataValueS">
+						<input type="text" id="realName" class="dataValueS" name="name">
 					</li>
 					<li>
 						<label class="dataType dataType2">
 							<span style="color:red">*</span>
 						    手机号码：
 						</label>
-						<input type="text" id="loginName" class="dataValueS" value="13957603378" readonly="readonly" style="background: #e6e6e6;">
+						<input type="text" id="loginName" class="dataValueS" value="13957603378" readonly="readonly" name="account" style="background: #e6e6e6;">
 					</li>
 					<li>
 						<label class="dataType dataType2">
 							<span style="color:red">*</span>
 						    身份证号：
 						</label>
-						<input type="text" id="cardID" class="dataValueS">
+						<input type="text" id="cardID" class="dataValueS" name="id">
 					</li>
 					<li>
 						<label class="dataType dataType2">婚姻：</label>
-						<label class="radiocheck" style="margin-left:10px;" value="1">已婚</label>
-						<label class="radiocheck dataRadioChecked"" value="0">未婚</label>
+						<input class="isMarred" name="isMarried" type="radio" style="margin-left:10px;" value="1">已婚
+						<input class="isMarred" name="isMarried" type="radio" value="0">未婚
 					</li>
 					<li>
 						<label class="dataType dataType2">职业：</label>
-						<input type="text" id="work" class="dataValueS">
+						<input name="job" type="text" id="work" class="dataValueS">
 					</li>
 					<li>
 						<label class="dataType dataType2">民族：</label>
-						<input type="text" id="nation" class="dataValueS">
+						<input name="people" type="text" id="nation" class="dataValueS">
 					</li>
 					<li>
 						<label class="dataType dataType2">出生地：</label>
-						<input type="text" id="birthAddress" class="dataValueS">
+						<input name="bornPlace" type="text" id="birthAddress" class="dataValueS">
 					</li>
 					<li>
 						<label class="dataType dataType2">现住地：</label>
-						<input type="text" id="address" class="dataValueS">
+						<input name="livePlace" type="text" id="address" class="dataValueS">
 					</li>
 					<li>
 						<label class="dataType dataType2">工作单位：</label>
-						<input type="text" id="workAddress" class="dataValueS">
+						<input name="company" type="text" id="workAddress" class="dataValueS">
 					</li>
 				</ul>
-
-				<input type="button" name="" id="btnSave" value="保存" onclick="save();">
+				<input type="submit" name="submit" id="btnSave" value="保存">
 			</div>
+		</form>
 		</div>
 	</body>
 </html>
-
+<% request.setCharacterEncoding("utf-8");%>
+<%if(request.getParameter("livePlace")!=null) {%>
+<jsp:useBean id="perInfo" class="javabean.PersonInfo" scope="session">
+</jsp:useBean>
+<jsp:setProperty property="*" name="perInfo"/>
+    <%
+    	PersonInfo pi = (PersonInfo)session.getAttribute("perInfo");
+    	AccessDB db = new AccessDB();
+    	db.excuteUpate("update patients set name='"
+    			        +pi.getName()+"', id='"
+    			        +pi.getId()+"',isMarried='"
+    			        +pi.getIsMarried()+"',people='"
+    			        +pi.getPeople()+"',company='"
+    			        +pi.getCompany()+"',job='"
+    			        +pi.getJob()+"',livePlace='"
+    			        +pi.getLivePlace()+"',bornPlace='"
+    			        +pi.getBornPlace()+"' "
+    			        +"where account = '"
+    			        +pi.getAccount()+"'"
+    	);
+    	db.close();
+    	
+    %>
+<%} %>
 <style type="text/css">
 
     body {
@@ -134,7 +159,7 @@
 	  left: 114px;
 	  opacity: 0;
 	}
-	.addCon input[type="button"]{
+	.addCon input[type="button"],.addCon input[type="submit"]{
 	  width: 100px;
 	  height: 40px;
 	  border-radius: 6px;
@@ -186,9 +211,33 @@
 <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript">
+	$.ajax({
+        type: "POST",
+        url: "/hospital/GRXXLoad",
+        success: function (data) {
+        	console.log(data);
+        	data = eval("("+data+")");
+        	$("#realName").val(data.name);
+        	$("#loginName").val(data.account);
+        	$("#cardID").val(data.id);
+        	$("#work").val(data.job);
+        	$("#birthAddress").val(data.bornPlace);
+        	$("#nation").val(data.people);
+        	$("#address").val(data.livePlace);
+        	$("#workAddress").val(data.company);
+        	if(data.isMarried=="1")
+       		{
+       			$(".isMarred:first").attr("checked","true");
+       			$(".isMarred:last").attr("checked","false");
+       		}
+        	else
+        	{
+        		$(".isMarred:first").attr("checked","false");
+        		$(".isMarred:last").attr("checked","true");
+        	}
+        	
+        }
 
-	$(".radiocheck").click(function(event) {
-		$(this).addClass('dataRadioChecked');
-		$(this).siblings().removeClass('dataRadioChecked');
-	});
+    });
 </script>
+</html>

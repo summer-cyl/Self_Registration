@@ -6,7 +6,9 @@ body {
 a {
 	text-decoration: none;
 }
-
+.logouta {
+	color:#1695CA;
+}
 .header {
 	width: 100%;
 	background-color: #ffffff;

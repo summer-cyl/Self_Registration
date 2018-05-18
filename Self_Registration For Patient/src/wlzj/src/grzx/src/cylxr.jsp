@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
+<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<title>网络诊间</title>
@@ -215,7 +217,7 @@
 <script type="text/javascript">
 	var count = 0;
 	var option = 1;  //option为1表示添加新数据， option为2表示修改数据
-
+    var oldName="null";
 	var nowId;
 
 	function openWindow(){
@@ -236,6 +238,8 @@
 		$("#name").val(name);
 		$("#realName").val(realName);
 		option = 2;
+		oldName = realName;
+		
 	});
 
 	$("#tab").on('click', '.deleteInfo', function(event) {
@@ -243,6 +247,42 @@
 		count --;
 		if(count == 0)
 			$("#noPerson").css("display", "table-row");
+		var realName = $(this).parent().parent().parent().find('#infoRealName').text();
+		oldname=realName;
+		$.ajax({
+            type: "POST",
+            url: "/hospital/DealContact",
+            data: "&contactId=" + oldName,
+            success: function (data) {
+            	if(data>"0")
+            	{
+            		$.ajax({
+                        type: "POST",
+                        url: "/hospital/DealContact",
+                        data: "&contactId=" + realName,
+                        success: function (data) {
+                        	if(data=="1")
+                        	{
+                        		$(this).parent().parent().parent().remove();
+                        		count --;
+                        		if(count == 0)
+                        			$("#noPerson").css("display", "table-row");            	}
+                        	else
+                        	{
+                        		alert("请重新提交");
+                        	}
+                        }
+
+                    });
+                }
+            	else
+            	{
+            		alert("请重新提交");
+            	}
+            }
+
+        });
+		
 	});
 
 	function save() {
@@ -263,50 +303,97 @@
 			            alert("身份证格式错误！");
 			        }
 			        else {
+			        	$.ajax({
+			                type: "POST",
+			                url: "/hospital/AddContactDeal",
+			                data: "contactName=" + name + "&contactId=" + realName,
+			                success: function (data) {
+			                	if(data=="1")
+			                	{
+			                		alert("添加成功！");
+									closeWindow();
+
+									if(parseInt(realName.substr(16, 1)) % 2 == 1)
+							        	var sex = "男";
+							        else
+							        	var sex = "女";
+
+							        var td1 = '<td id="infoName">' + name + '</td>';
+							        var td2 = '<td>' + sex + '</td>';
+							        var td3 = '<td id="infoRealName">' + realName + '</td>';
+							        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
+
+
+							        $("#name").val("");
+							        $("#realName").val("");
+
+							        count ++;
+							        if(count == 0)
+										$("#noPerson").css("display", "table-row");
+									else
+										$("#noPerson").css("display", "none");
+
+							        $("#tab").append("<tr id="+count+" align='center' height='15px' border-bottom='1px solid #000000'>"
+							        	+ td1
+							        	+ td2
+							        	+ td3
+							        	+ td4
+							        	+"</tr>");
+			                	}
+			                	else
+			                	{
+			                		alert("请重新提交");
+			                	}
+			                }
+
+			            });
 			        	
-			        	alert("添加成功！");
-						closeWindow();
-
-						if(parseInt(realName.substr(16, 1)) % 2 == 1)
-				        	var sex = "男";
-				        else
-				        	var sex = "女";
-
-				        var td1 = '<td id="infoName">' + name + '</td>';
-				        var td2 = '<td>' + sex + '</td>';
-				        var td3 = '<td id="infoRealName">' + realName + '</td>';
-				        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
-
-
-				        $("#name").val("");
-				        $("#realName").val("");
-
-				        count ++;
-				        if(count == 0)
-							$("#noPerson").css("display", "table-row");
-						else
-							$("#noPerson").css("display", "none");
-
-				        $("#tab").append("<tr id="+count+" align='center' height='15px' border-bottom='1px solid #000000'>"
-				        	+ td1
-				        	+ td2
-				        	+ td3
-				        	+ td4
-				        	+"</tr>");
 				    }
 			    }
 			}
 		}
 		
 		else if(option == 2){
+			
 			var name = $("#name").val();
 			var realName = $("#realName").val();
 			var tabName = "#tab tr[id=" + nowId + "] td[id=infoName]";
 			var tabRealName = "#tab tr[id=" + nowId + "] td[id=infoRealName]";
+			$.ajax({
+                type: "POST",
+                url: "/hospital/DealContact",
+                data: "&contactId=" + oldName,
+                success: function (data) {
+                	if(data>"0")
+                	{
+                		$.ajax({
+                            type: "POST",
+                            url: "/hospital/AddContactDeal",
+                            data: "contactName=" + name + "&contactId=" + realName,
+                            success: function (data) {
+                            	if(data=="1")
+                            	{
+                            		
+                        			
+                        			$(tabName).text(name);
+                        			$(tabRealName).text(realName);
+                        			closeWindow();                	}
+                            	else
+                            	{
+                            		alert("请重新提交");
+                            	}
+                            }
 
-			$(tabName).text(name);
-			$(tabRealName).text(realName);
-			closeWindow();
+                        });
+                    }
+                	else
+                	{
+                		alert("请重新提交");
+                	}
+                }
+
+            });
+			
 			
 		}
 		
@@ -317,7 +404,36 @@
 	   var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
 	   return pattern.test(card); 
 	} 
+	$.ajax({
+        type: "POST",
+        url: "/hospital/ContactLoad",
+        success: function (data) {
+        	var dataObj = eval("("+data+")");
+        	console.log(data);
+        	for(var i=0;i<dataObj.length;i++)
+    		{
+        		if(parseInt((dataObj[i].id).substr(1, 1)) % 2 == 1)
+		        	var sex = "男";
+		        else
+		        	var sex = "女";
+		        var td1 = '<td id="infoName">' +dataObj[i].name + '</td>';
+		        var td2 = '<td>' + sex + '</td>';
+		        var td3 = '<td id="infoRealName">' + dataObj[i].id+ '</td>';
+		        var td4 = '<td>' + '<div class="operation">' + '<span class="changeInfo">修改</span><br>' + '<span class="deleteInfo">删除</span>' + '</div>' + '</td>';
+		        $("#tab").append("<tr id="+(i+1)+" align='center' height='15px' border-bottom='1px solid #000000'>"
+		        	+ td1
+		        	+ td2
+		        	+ td3
+		        	+ td4
+		        	+"</tr>");
+		        count++;
+    		}
+	        if(dataObj==null||dataObj.length==0||count==0)
+				$("#noPerson").css("display", "table-row");
+			else
+				$("#noPerson").css("display", "none");
 
+        }
 
+    });
 </script>
-
