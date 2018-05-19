@@ -9,7 +9,10 @@ var mySwiper = new Swiper('.swiper-container', {
     autoplayDisableOnInteraction: true, 
     loop: true,
 });
-var departId 
+var departName;
+var chooseDay;
+var time;
+var isMorning=0;
 $(".swiper-container").on("focusout", function(){
     setTimeout(function() {
         if($(this).find(":focus").length === 0){
@@ -40,9 +43,10 @@ $('.adddoctor').click(function() {
     }
 });
 
-
 $('.dlclidet span').click(function() {
     $(this).addClass('dlcldc').siblings().removeClass('dlcldc');
+    loadExperson();
+    
 });
 
 $('.adddoctor2').click(function() {
@@ -77,8 +81,43 @@ $('#moreMY').click(function() {
 $('#moreZxys').click(function() {
     window.location.href = "../zxys/index.html";
 });
-
-
+function loadExperson()
+{
+	departName = $(".dlcldc").eq(0).text();
+	chooseDay = $(".dlcldc").eq(1).text();
+	time = $(".dlcldc").eq(2).text();
+	isMorning=0;
+	console.log(departName+" "+chooseDay+" "+time);
+	if(time=="上午")
+		isMorning=1;
+	$.ajax({
+        type: "POST",
+        url: "/hospital/LoadExp",
+        data : "departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning,    
+        success: function (data) {
+      
+    	data = eval("("+data+")");
+    	$(".experlist .item").remove();
+    	for(var i=0;i<data.length;i++)
+		{
+    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
+    		           +"<div class='docname'>"+data[i].name+"</div>"
+    		           +"<div class='deptname' title=''>"+data[i].departName+"</div>"
+    		           +"<div class='docgoodin' title=''>"+data[i].intro+"</div>"
+    		           +"<div class='orderdocbut myyy'>预约"+data[i].num+"</div>"
+    				   +"</div>";
+    		
+    		$(".experlist").append(text);
+    		$(".item").on("click", function () {
+    			 window.location.href = "../zjyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning;
+            });
+    		
+		}
+        }
+    });
+	
+}
+loadExperson();
 
 
 

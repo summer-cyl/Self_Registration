@@ -185,7 +185,7 @@
 							<div class="dlctr">
 								<div class="dlcliname">科室筛选</div>
 								<div class="dlclidet dept">
-									<span class="dlcldc">全部科室</span>
+									<span class="dlcldc departName">全部科室</span>
 									<% 
 										AccessDB db = new AccessDB();
 									    ResultSet res = db.excueteQuery("select name from department order by id asc");
@@ -217,41 +217,41 @@
 							        
 							        c.setTime(date);  
 							        day = c.get(Calendar.DATE);  
-							        c.set(Calendar.DATE, day + 1);  
+							        c.set(Calendar.DATE, day + 2);  
 							  
 							        String dayAfter1 = new SimpleDateFormat("yyyy-MM-dd")  
 							                .format(c.getTime());
 							        
 							        c.setTime(date);  
 							        day = c.get(Calendar.DATE);  
-							        c.set(Calendar.DATE, day + 1);  
+							        c.set(Calendar.DATE, day + 3);  
 							        String dayAfter2 = new SimpleDateFormat("yyyy-MM-dd")  
 							                .format(c.getTime());
 							        
 							        c.setTime(date);  
 							        day = c.get(Calendar.DATE);  
-							        c.set(Calendar.DATE, day + 1);  
+							        c.set(Calendar.DATE, day + 4);  
 							        String dayAfter3 = new SimpleDateFormat("yyyy-MM-dd")  
 							                .format(c.getTime());
 							        
 							    	//选中的按钮的样式 pwchecked
 							        %>
-									<span class="dlcldc"><%=specifiedDay%></span>
-									<span><%=dayAfter%></span>
-									<span><%=dayAfter1%></span>
-									<span><%=dayAfter2%></span>
-									<span><%=dayAfter3%></span>
+									<span class="dlcldc exvalidday"><%=specifiedDay%></span>
+									<span class="exvalidday"><%=dayAfter%></span>
+									<span class="exvalidday"><%=dayAfter1%></span>
+									<span class="exvalidday"><%=dayAfter2%></span>
+									<span class="exvalidday"><%=dayAfter3%></span>
 								</div>
 							</div>
 							<div class="dlctr">
 								<div class="dlcliname">就诊时段</div>
 								<div class="dlclidet timeScope">
-									<span class="dlcldc">上午</span>
-									<span>下午</span>
+									<span class="dlcldc timeSec">上午</span>
+									<span class="timeScope timeSec">下午</span>
 								</div>
 							</div>
 						</div>
-						<div class="docarea">
+						<div class="docarea experlist">
 							<div class="item">
 								<div class="docimg">
 									<img src="image/slide2.png">
