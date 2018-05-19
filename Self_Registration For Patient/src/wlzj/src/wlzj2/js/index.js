@@ -12,6 +12,7 @@ var mySwiper = new Swiper('.swiper-container', {
 var departName;
 var chooseDay;
 var time;
+var intro;
 var isMorning=0;
 $(".swiper-container").on("focusout", function(){
     setTimeout(function() {
@@ -102,14 +103,18 @@ function loadExperson()
 		{
     		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
     		           +"<div class='docname'>"+data[i].name+"</div>"
-    		           +"<div class='deptname' title=''>"+data[i].departName+"</div>"
-    		           +"<div class='docgoodin' title=''>"+data[i].intro+"</div>"
+    		           +"<div class='deptname' title='"+data[i].id+"'>"+data[i].departName+"</div>"
+    		           +"<div class='docgoodin' title=''>"+data[i].intro+data[i].position+"</div>"
     		           +"<div class='orderdocbut myyy'>预约"+data[i].num+"</div>"
     				   +"</div>";
     		
     		$(".experlist").append(text);
     		$(".item").on("click", function () {
-    			 window.location.href = "../zjyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning;
+    			 departName=$(this).find(".deptname").text();
+    			 intro = $(this).find(".docgoodin").text();
+    			 name = $(this).find(".docname").text();
+    			 id=$(this).find(".deptname").attr("title");
+    			 window.location.href = "../zjyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning+"&intro="+intro+"&name="+name+"&id="+id;
             });
     		
 		}

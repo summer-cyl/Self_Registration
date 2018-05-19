@@ -144,3 +144,66 @@ function save()
 $('.vddbutlast').click(function() {
     window.location.href = "../zjyy/index.html";
 });
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)
+        return  decodeURI(r[2]);
+      return null;
+}
+function GetRequest() {  
+	  
+	   $("#deptName").text(GetQueryString("departName"));
+	   $("#doctorName").text(GetQueryString("name"));
+	   var time="下午"
+	   if(GetQueryString("isMorning")=="1")
+		   time="上午";
+	   $("#time").text("时间"+GetQueryString("chooseDay")+time);
+	   $(".diddet").text(GetQueryString("intro"));
+	   
+}   
+GetRequest();
+function PageAddContact()
+{
+	$.ajax({
+        type: "POST",
+        url: "/hospital/ContactLoad",
+        success: function (data) {
+        	var dataObj = eval("("+data+")");
+        	for(var i=0;i<dataObj.length;i++)
+    		{
+        		$(".morecase").before("<span class='ihcasename' > " + dataObj[i].name + "</span>");
+        		$('.ihcasename').on("click",(addPeople));
+    		}
+        }
+
+    });
+}
+$('.ihcasename').click(addPeople);
+function addPeople (){
+	var text = $(this).html().toString();
+	$("#patientName").val(text);
+	$.ajax({
+        type: "POST",
+        url: "/hospital/ContactReadID",
+        data:"patiantname="+text,
+        success: function (data) {
+        	console.log(data);
+        	var dataObj = eval("("+data+")");
+        	if(text.indexOf("本人")>=0)
+    		{
+        		$("#patientName").val(dataObj.name);
+                $('#idCard').val(dataObj.id);
+    		}
+        	else
+        	{
+        		$('#idCard').val(dataObj.id);
+        	}		
+        }
+
+    });
+}
+PageAddContact();
+
+

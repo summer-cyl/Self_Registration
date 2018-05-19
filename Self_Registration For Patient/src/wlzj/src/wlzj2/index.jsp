@@ -344,6 +344,6 @@
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src='js/swiper.min.js'></script>
-	<script src="js/index.js"></script>
+	<script src="js/index.js" language="javascript" charset="utf-8"></script>
 	
 </html>
