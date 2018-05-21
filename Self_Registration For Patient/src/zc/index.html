@@ -52,5 +52,38 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		$("#register").click(function(){
+			var tel = $("#phone").val();
+			var password = $("#pwd").val();
+			var rePassword = $("#repwd").val();
+			if(password!=rePassword)
+			{
+				alert("两次密码不一致");
+			}
+			else if(tel.length!=11||password=="")
+			{
+				alert("信息格式不对");
+			}
+			else
+			{
+				$.ajax({
+			        type: "POST",
+			        url: "/hospital/ResignDeal",
+			        data : "account="+tel+"&password="+password,    
+			        success: function (data) {
+			    		if(data=="1")
+			    			alert("注册成功");
+			    		else alert("注册失败");
+					
+			        }
+			    });
+				
+			}
+			
+		});
+		
+	</script>
 </html>

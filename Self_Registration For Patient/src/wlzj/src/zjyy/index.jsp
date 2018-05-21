@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="javatools.AccessDB,java.sql.ResultSet,java.util.Date,java.util.Calendar,java.text.SimpleDateFormat"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,48 +37,88 @@
 						</span>
 					</div>
 
-					<div class="orderbottom">
-						<div class="doclistchoose">
+					<div class="orderbottom" id="selectMYDiv">
+						<div class="myCondition doclistchoose">
 							<div class="adddoctor" v="0">收起</div>
 							<div class="dlctr">
 								<div class="dlcliname">科室筛选</div>
 								<div class="dlclidet dept">
-									<span class="dlcldc">全部科室</span>
-									<span>血液病科专家门诊</span>
-									<span>肾脏病专家门诊</span>
-									<span>皮肤科专家门诊</span>
-									<span>骨髓移植中心</span>
-									<span>肝胆胰外科专家门诊</span>
-									<span>呼吸内科专家门诊</span>
-									<span>消化内科专家门诊</span>
-									<span>全科医疗专家门诊</span>
-									<span>妇科专家门诊</span>
-									<span>心血管内科专家门诊</span>
-									<span>骨科专家门诊</span>
+									<span class="dlcldc departName">全部科室</span>
+									<% 
+										AccessDB db = new AccessDB();
+									    ResultSet res = db.excueteQuery("select name from department order by id asc");
+									    String a[] = new String[100];
+									    int i=0;
+									    while(res!=null&&res.next())
+									    {
+									    	a[i]=new String(res.getString("name"));
+									    	
+									    	
+									%>   
+									    <span class="departName"><%=a[i++]%></span>
+									<%
+									    }
+									    db.close();
+									%>
 								</div>
 							</div>
 							<div class="dlctr">
 								<div class="dlcliname">就诊日期</div>
 								<div class="dlclidet day">
-									<span class="dlcldc">5月11日</span>
-									<span>5月14日</span>
-									<span>5月15日</span>
-									<span>5月16日</span>
-									<span>5月17日</span>
+								    <%
+								    Date date = new Date();  
+							        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+							        String specifiedDay = sdf.format(date);
+							        
+							        Calendar c = Calendar.getInstance();  
+							     
+							        c.setTime(date);  
+							        int day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 1);  
+							  
+							        String dayAfter = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime()); 
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 2);  
+							  
+							        String dayAfter1 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 3);  
+							        String dayAfter2 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							        c.setTime(date);  
+							        day = c.get(Calendar.DATE);  
+							        c.set(Calendar.DATE, day + 4);  
+							        String dayAfter3 = new SimpleDateFormat("yyyy-MM-dd")  
+							                .format(c.getTime());
+							        
+							    	//选中的按钮的样式 pwchecked
+							        %>
+									<span class="dlcldc exvalidday"><%=specifiedDay%></span>
+									<span class="exvalidday"><%=dayAfter%></span>
+									<span class="exvalidday"><%=dayAfter1%></span>
+									<span class="exvalidday"><%=dayAfter2%></span>
+									<span class="exvalidday"><%=dayAfter3%></span>
 								</div>
 							</div>
 							<div class="dlctr">
 								<div class="dlcliname">就诊时段</div>
 								<div class="dlclidet timeScope">
-									<span class="dlcldc">上午</span>
-									<span>下午</span>
+									<span class="dlcldc timeSec">上午</span>
+									<span class="timeScope timeSec">下午</span>
 								</div>
 							</div>
 						</div>
-						<div class="docarea">
+						<div class="docarea experlist">
 							<div class="item">
 								<div class="docimg">
-									<img src="image/docoppoint.png">
+									<img src="image/slide2.png">
 								</div>
 								<div class="docname">韦菊英</div>
 								<div class="deptname" title="">血液病科专家门诊</div>
@@ -85,7 +127,7 @@
 							</div>
 							<div class="item">
 								<div class="docimg">
-									<img src="image/docoppoint.png">
+									<img src="image/slide2.png">
 								</div>
 								<div class="docname">韦菊英</div>
 								<div class="deptname" title="">血液病科专家门诊</div>
@@ -94,7 +136,7 @@
 							</div>
 							<div class="item">
 								<div class="docimg">
-									<img src="image/docoppoint.png">
+									<img src="image/slide2.png">
 								</div>
 								<div class="docname">韦菊英</div>
 								<div class="deptname" title="">血液病科专家门诊</div>
@@ -103,7 +145,7 @@
 							</div>
 							<div class="item">
 								<div class="docimg">
-									<img src="image/docoppoint.png">
+									<img src="image/slide2.png">
 								</div>
 								<div class="docname">韦菊英</div>
 								<div class="deptname" title="">血液病科专家门诊</div>
@@ -111,9 +153,8 @@
 								<div class="orderdocbut orderdocbutstt">停诊</div>
 							</div>
 						</div>
+						
 					</div>
-				</div>
-
 			</div>
 		</div>
 	</body>

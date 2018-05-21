@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="javatools.AccessDB,java.sql.ResultSet,java.util.Date,java.util.Calendar,java.text.SimpleDateFormat"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,8 +17,6 @@
 		    c_iframe.src = c_iframe.src + "#" + b_width + "|" + b_height
 			})(); 
 		</script>
-
-
 		<div class="content">
 			<div class="inthoscontent">
 				<div class="bigphofig">
@@ -40,22 +40,34 @@
 							<div class="dlctr">
 								<div class="dlcliname">科室筛选</div>
 								<div class="dlclidet dept">
-									<span class="dlcldc">全部科室</span>
-									<span>血液病科专家门诊</span>
+								<span class="Onlinedept dlcldc">全部科室</span>
+								    <%
+								    	AccessDB deptdb = new AccessDB();
+								        ResultSet resultSet = deptdb.excueteQuery("select departName from onlinedoctor inner join doctors on onlinedoctor.id = doctors.account");
+								        while(resultSet!=null&&resultSet.next())
+								        {
+								        	
+								    %>
+								    	   <span class="Onlinedept"><%=resultSet.getString("departName")%></span>
+								    <%
+								        }
+								    %>
+									
 								</div>
 							</div>
 							<div class="dlctr">
 								<div class="dlcliname">就诊日期</div>
 								<div class="dlclidet day">
-									<span class="dlcldc">5月11日</span>
-									<span>5月14日</span>
-									<span>5月15日</span>
-									<span>5月16日</span>
-									<span>5月17日</span>
+								 <%
+								    Date date = new Date();  
+							        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+							        String specifiedDay = sdf.format(date);
+							     %>
+									<span class="dlcldc exvalidday"><%=specifiedDay%></span>
 								</div>
 							</div>
 						</div>
-						<div class="docarea">
+						<div class="docarea onlinedoctors">
 							<div class="item">
 								<div class="docimg">
 									<img src="image/zxys.png">

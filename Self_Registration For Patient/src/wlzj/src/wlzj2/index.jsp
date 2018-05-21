@@ -189,12 +189,18 @@
 									<% 
 										AccessDB db = new AccessDB();
 									    ResultSet res = db.excueteQuery("select name from department order by id asc");
+									    String a[] = new String[100];
+									    int i=0;
 									    while(res!=null&&res.next())
 									    {
+									    	a[i]=new String(res.getString("name"));
+									    	
+									    	
 									%>   
-									    <span class="departName"><%=res.getString("name")%></span>
+									    <span class="departName"><%=a[i++]%></span>
 									<%
 									    }
+									    db.close();
 									%>
 								</div>
 							</div>
@@ -306,36 +312,43 @@
 						</span>
 					</div>
 					<div class="orderbottom" id="selectZxysDiv">
-						<div class="zxysCondition doclistchoose2" style="height: 60px">
+						<div class="zxysCondition doclistchoose2">
 							<div class="adddoctor2" v="0">收起</div>
 							<div class="dlctr">
 								<div class="dlcliname">科室筛选</div>
+						
 								<div class="dlclidet dept">
-									<span class="dlcldc">全部科室</span>
-									<span>心血管内科专家门诊</span>
-									<span>血液病科专家门诊</span>
+								<span class="Onlinedept dlcldc">全部科室</span>
+								    <%
+								    	AccessDB deptdb = new AccessDB();
+								        ResultSet resultSet = deptdb.excueteQuery("select departName from onlinedoctor inner join doctors on onlinedoctor.id = doctors.account");
+								        while(resultSet!=null&&resultSet.next())
+								        {
+								        	
+								    %>
+								    	   <span class="Onlinedept"><%=resultSet.getString("departName")%></span>
+								    <%
+								        }
+								    %>
+									
 								</div>
-							</div>
-							<div class="dlctr">
+							</div> 
 								<div class="dlcliname">就诊日期</div>
 								<div class="dlclidet day">
-									<span class="dlcldc">5月9日</span>
+									<span class="dlcldc"><%=specifiedDay%></span>
 								</div>
 							</div>
 						</div>
-						<div class="docarea">
+						<div class="docarea onlinedoctors">
 							<div class="item">
 						    	<div class="docimg">
 						    		<img src="image/slide2.png">
 						    	</div>
-						    	<div class="docname">姚雪艳</div>
-						    	<div class="deptname" title="">心血管内科专家门诊</div>
+						    	<div class="docname">在线医生</div>
+						    	<div class="deptname" title="">给与建议意见</div>
 						    	<div class="docgoodin" title="">简介：</div>
-						    	<div class="orderdocbut zxys">预约(7个号)</div>
+						    	<div class="orderdocbut zxys">预约(20个号)</div>
 						    </div>
-						</div>
-						<div class="morefamdoc">
-							<span id="moreZxys">更多在线医生</span>
 						</div>
 					</div>
 				</div>

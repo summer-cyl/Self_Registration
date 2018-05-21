@@ -1,3 +1,8 @@
+var departName;
+var chooseDay;
+var time;
+var intro;
+var isMorning=0;
 $('.adddoctor').click(function() {
     if($(this).attr('v') == 0) {
         $('.doclistchoose').css('height', '24'+'px');
@@ -13,7 +18,11 @@ $('.adddoctor').click(function() {
     }
 });
 
-
+$('.dlclidet span').click(function() {
+    $(this).addClass('dlcldc').siblings().removeClass('dlcldc');
+    loadExperson();
+    
+});
 $('.dlclidet span').click(function() {
     $(this).addClass('dlcldc').siblings().removeClass('dlcldc');
 });
@@ -21,6 +30,47 @@ $('.dlclidet span').click(function() {
 $('.myyy').click(function() {
     window.location.href = "../zjyy2/index.html";
 });
+function loadExperson()
+{
+	departName = $(".dlcldc").eq(0).text();
+	chooseDay = $(".dlcldc").eq(1).text();
+	time = $(".dlcldc").eq(2).text();
+	isMorning=0;
+	console.log(departName+" "+chooseDay+" "+time);
+	if(time=="上午")
+		isMorning=1;
+	$.ajax({
+        type: "POST",
+        url: "/hospital/LoadExp",
+        data : "departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning,    
+        success: function (data) {
+      
+    	data = eval("("+data+")");
+    	$(".experlist .item").remove();
+    	for(var i=0;i<data.length;i++)
+		{
+    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
+    		           +"<div class='docname'>"+data[i].name+"</div>"
+    		           +"<div class='deptname' title='"+data[i].id+"'>"+data[i].departName+"</div>"
+    		           +"<div class='docgoodin' title=''>"+data[i].intro+data[i].position+"</div>"
+    		           +"<div class='orderdocbut myyy'>预约"+data[i].num+"</div>"
+    				   +"</div>";
+    		
+    		$(".experlist").append(text);
+    		$(".item").on("click", function () {
+    			 departName=$(this).find(".deptname").text();
+    			 intro = $(this).find(".docgoodin").text();
+    			 name = $(this).find(".docname").text();
+    			 id=$(this).find(".deptname").attr("title");
+    			 window.location.href = "../zjyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning+"&intro="+intro+"&name="+name+"&id="+id;
+            });
+    		
+		}
+        }
+    });
+	
+}
+loadExperson();
 
 
 
