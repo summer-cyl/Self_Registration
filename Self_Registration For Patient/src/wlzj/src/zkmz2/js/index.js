@@ -69,12 +69,12 @@ function saveMedicalHistory(mainType) {
 	else if(mainType=="婚育史")
 	{
 		var ansInput = "";
-		var isMarried = $('#wrap input[name="radio1"]:checked ').val();
+		var isMarried = $('input[name="radio1"]:checked ').val();
 		if(isMarried==0)
 			ansInput += "已婚 ";
 		else 
 			ansInput += "未婚 ";
-		var isPreg = $('#wrap input[name="radio2"]:checked ').val();
+		var isPreg = $('input[name="radio2"]:checked ').val();
 		if(isPreg==0)
 		{	
 			ansInput += "未生育 ";
@@ -91,10 +91,7 @@ function saveMedicalHistory(mainType) {
 		{
 			ansInput += "已生育 ";
 		}
-		var text = $("#others2").val();
-		if(ansInput==""&&text=="")
-			text="无";
-		$("#obstetricalHistory").text(ansInput+" "+text);
+		$("#obstetricalHistory").text(ansInput);
 	}
 	else if(mainType=="过敏史")
 	{

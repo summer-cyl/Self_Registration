@@ -59,5 +59,18 @@ function logout()
 	        }
 
 	    });
-           
 }
+$.ajax({
+    type: "POST",
+    url: "/hospital/EnsureLog",
+    success: function (data) {
+    	alert(data);
+        if (data == "1") {
+            $("#caselogin1").attr('style','display: none');
+            $("#caselogin2").attr('style','display: block');
+            $('#usernamespan').html($("#userName").val().toString());
+            $('#loginDiv').attr('style', 'display: none');
+            return true;
+        }
+    }
+});

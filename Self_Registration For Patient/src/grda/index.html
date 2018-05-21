@@ -107,4 +107,27 @@
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="js/index.js"></script>
+	<script type="text/javascript">
+	$.ajax({
+	    type: "POST",
+	    url: "/hospital/EnsureLog",
+	    success: function (data) {
+	    	alert(data);
+	        if (data == "1") {
+	            $("#caselogin1").attr('style','display: none');
+	            $("#caselogin2").attr('style','display: block');
+	            $('#usernamespan').html($("#userName").val().toString());
+	            $('#loginDiv').attr('style', 'display: none');
+	            return true;
+	        }
+	        else {
+	            alert("请确认您输入的用户名或密码输入是否正确！");
+	            $("#userName").val("");
+	            $("#password").val("");
+	            $("#userName").focus();
+	            return false;
+	        }
+	    }
+	});
+	</script>
 </html>
