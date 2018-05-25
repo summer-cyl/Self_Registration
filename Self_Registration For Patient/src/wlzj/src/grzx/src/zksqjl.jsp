@@ -69,7 +69,7 @@
 		  		</tr>
 		  		<%
 				String id = (String)session.getAttribute("Userid");
-				String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+"666666"+"'" +
+				String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+id+"'" +
 				"order by validDay desc";
 				AccessDB db = new AccessDB();
 				ResultSet resultSet = db.excueteQuery(select);

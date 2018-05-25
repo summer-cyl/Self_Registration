@@ -64,11 +64,10 @@ $.ajax({
     type: "POST",
     url: "/hospital/EnsureLog",
     success: function (data) {
-    	alert(data);
-        if (data == "1") {
+        if (data != "") {
             $("#caselogin1").attr('style','display: none');
             $("#caselogin2").attr('style','display: block');
-            $('#usernamespan').html($("#userName").val().toString());
+            $('#usernamespan').html(data);
             $('#loginDiv').attr('style', 'display: none');
             return true;
         }

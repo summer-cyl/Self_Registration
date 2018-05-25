@@ -69,7 +69,7 @@
 		  		</tr>
 		  		<%
 				String id = (String)session.getAttribute("Userid");
-				String select = "select * from expertpreorder inner join doctors on expertpreorder.doctorId=doctors.account where userAcount = '"+id+"'" +
+				String select = "select * from onlinepreorder inner join doctors on onlinepreorder.doctorId=doctors.account where userId = '"+id+"'" +
 				"order by validDay desc";
 				AccessDB db = new AccessDB();
 				ResultSet resultSet = db.excueteQuery(select);
@@ -86,12 +86,9 @@
 						String departName = resultSet.getString("departName");
 						String doctName = resultSet.getString("doctors.name");
 						jsonObject.put("departName",departName+" "+doctName);
-						int isMorning = resultSet.getInt("isMorning");
-						String ans = "上午";
-						if(isMorning==0)
-							ans = "下午";
+						
 						String validday = resultSet.getString("validday");
-						jsonObject.put("validday",validday+" "+ans);
+						jsonObject.put("validday",validday);
 						jsonArray.put(jsonObject);
 					}
 				} catch (Exception e) {

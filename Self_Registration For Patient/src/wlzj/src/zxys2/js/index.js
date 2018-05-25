@@ -1,5 +1,6 @@
 var chooseDay;
 var doctorId;
+
 function chooseClick(mainType){
 // }
 // $('.medhischoose a').click(function() {

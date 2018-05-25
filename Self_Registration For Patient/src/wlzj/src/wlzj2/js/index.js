@@ -100,7 +100,7 @@ function loadExperson()
       
     	data = eval("("+data+")");
     	$(".experlist .item").remove();
-    	for(var i=0;i<data.length;i++)
+    	for(var i=0;i<data.length&&i<5;i++)
 		{
     		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
     		           +"<div class='docname'>"+data[i].name+"</div>"
