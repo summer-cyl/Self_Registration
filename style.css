@@ -1,0 +1,55 @@
+a {
+	text-decoration: none;
+	color: #8db6e4;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin:0;
+	background-image: url(back.png);
+}
+
+.head {
+	width: 100%;
+	height: 400px;
+	margin-top: 50px;
+}
+
+#mainPic {
+	display: block;
+	margin: 0 auto;
+	height: 400px;
+}
+
+.block {
+	width: 200px;
+	height: 150px;
+}
+
+.item {
+	margin-top: 100px;
+	width: 150px;
+	height: 150px;
+	background-color: #fff;
+	border-radius: 150px;
+	float: left;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.item p {
+	position: relative;
+	height: 30px;
+	font-size:35px;
+	float: left;
+	margin-left: 23px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #8db6e4;
+}
+
+.am {
+	float: left;
+	position: relative;
+	margin: 0 15px;
+}
