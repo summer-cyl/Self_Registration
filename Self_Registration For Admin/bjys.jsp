@@ -117,6 +117,7 @@
                     <div class="am-g tpl-amazeui-form" style="margin-top: 30px;">
 			            <%
 			            	String account = request.getParameter("account");
+			                session.setAttribute("doctorId",account);
 			        	    request.setAttribute("doctorId", account);
 			            	AccessDB db = new AccessDB();
 			            	ResultSet ans = db.excueteQuery("select * from doctors where account="+"'"+account+"'");
@@ -144,6 +145,7 @@
 			            	}
 			            	db.close();
 			            %>
+			            <form class="am-form am-form-horizontal" action="/hospital/AddNewImage" method="post" enctype="multipart/form-data">
                         <div class="am-u-sm-2 am-u-md-2" style="margin-left: 10%">
                             <div class="am-form-group">
                                 <div class="am-form-group am-form-file" style="text-align: center">
@@ -151,10 +153,12 @@
                                         <img src="../Self_Registration%20For%20Doctor/image/<%=account%>.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%">
                                     </div>
                                     <button type="button" class="am-btn am-btn-sm" style="background-color: #fff; cursor: pointer;">更改头像</button>
-                                    <input id="doc-form-file" type="file" multiple>
+                                    <input id="doc-form-file" type="file">
                                 </div>
                             </div>
+                             <button type="submit" class="am-btn am-btn-primary" >上传</button>
                         </div>
+                        </form>
                         <form class="am-form am-form-horizontal" action="/hospital/changeDoctorInfo" method="post">
                         <div class="am-u-sm-6 am-u-md-6">
                             

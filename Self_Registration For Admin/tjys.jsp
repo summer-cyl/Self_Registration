@@ -113,21 +113,11 @@
                 </div>
 
                 <div class="tpl-block ">
-                    <form action="/hospital/addDoctors" method="post" class="am-form am-form-horizontal">
+                    <form action="/hospital/AddDoctors" method="get" class="am-form am-form-horizontal" >
                     <div class="am-g tpl-amazeui-form" style="margin-top: 30px;">
 
 
-                        <div class="am-u-sm-2 am-u-md-2" style="margin-left: 10%">
-                            <div class="am-form-group">
-                                <div class="am-form-group am-form-file" style="text-align: center">
-                                    <div class="tpl-form-file-img">
-                                        <img src="assets/img/user01.png" alt="" style="width: 120px; height: 120px; border-radius: 50%">
-                                    </div>
-                                    <button type="button" class="am-btn am-btn-sm" style="background-color: #fff; cursor: pointer;">更改头像</button>
-                                    <input id="doc-form-file" type="file" name="picture">
-                                </div>
-                            </div>
-                        </div>
+                      
                         
                        
                         <div class="am-u-sm-6 am-u-md-6">
@@ -140,7 +130,12 @@
                                         <input type="text" name="name" placeholder="姓名 / Name" >
                                     </div>
                                 </div>
-
+								<div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">密码</label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text"  placeholder="密码 / Name" name="password" >
+                                    </div>
+                                </div>
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>
                                     <div class="am-u-sm-9">
