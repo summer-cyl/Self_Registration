@@ -39,7 +39,7 @@
 			</div>
 		</div>
 
-		<iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.jsp" style="width: 100%; margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no""></iframe>
+		<iframe id="contentFrame" name="contentFrame" src="src/wlzj2/index.jsp" style="width: 100%;  height:1200px;margin-bottom: -4px; margin-top: -1px; background-color: rgb(245, 248, 250); background-position: initial initial; background-repeat: initial initial;" frameborder="0" scrolling="no""></iframe>
 		<script type="text/javascript">
 		    var b_iframe = window.parent.parent.document.getElementById("contentFrame");
 		    var hash_url = window.location.hash;

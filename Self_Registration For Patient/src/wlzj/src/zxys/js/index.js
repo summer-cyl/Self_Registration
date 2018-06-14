@@ -35,7 +35,7 @@ function loadOnline()
     	$(".onlinedoctors .item").remove();
     	for(var i=0;i<data.length;i++)
 		{
-    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://192.168.0.101:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
+    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
     		           +"<div class='docname'>"+data[i].name+"</div>"
     		           +"<div class='deptname' title='"+data[i].id+"'>"+data[i].departName+"</div>"
     		           +"<div class='docgoodin' title=''>"+data[i].intro+data[i].position+"</div>"
