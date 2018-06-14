@@ -317,7 +317,7 @@
 							        	var sex = "男";
 							        else
 							        	var sex = "女";
-
+              
 							        var td1 = '<td id="infoName">' + name + '</td>';
 							        var td2 = '<td>' + sex + '</td>';
 							        var td3 = '<td id="infoRealName">' + realName + '</td>';
@@ -359,6 +359,8 @@
 			var realName = $("#realName").val();
 			var tabName = "#tab tr[id=" + nowId + "] td[id=infoName]";
 			var tabRealName = "#tab tr[id=" + nowId + "] td[id=infoRealName]";
+			var sexTd = "#tab tr[id=" + nowId + "] td:nth-child(2)";
+			console.log(sexTd);
 			$.ajax({
                 type: "POST",
                 url: "/hospital/DealContact",
@@ -377,7 +379,15 @@
                         			
                         			$(tabName).text(name);
                         			$(tabRealName).text(realName);
-                        			closeWindow();                	}
+                        			var sex
+                        			if(parseInt(realName.substr(16, 1)) % 2 == 1)
+							        	sex = "男";
+							        else
+							        	sex = "女";
+                        			$(sexTd).text(sex);
+                        			closeWindow();
+                        			
+                        		}
                             	else
                             	{
                             		alert("请重新提交");
@@ -412,7 +422,7 @@
         	console.log(data);
         	for(var i=0;i<dataObj.length;i++)
     		{
-        		if(parseInt((dataObj[i].id).substr(1, 1)) % 2 == 1)
+        		if(parseInt((dataObj[i].id).substr(16, 1)) % 2 == 1)
 		        	var sex = "男";
 		        else
 		        	var sex = "女";

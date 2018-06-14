@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,7 +9,7 @@
 		<title>网络诊间-填写问诊信息</title>
 	</head>
 	<body>
-		<iframe id="c_iframe" height="0" width="0" src="../../index.html" style="display:none"></iframe>
+		<iframe id="c_iframe" height="0" width="0" src="../../index.jsp" style="display:none"></iframe>
 		<script type="text/javascript"> (function autoHeight() {
 		    var b_width = Math.max(document.body.scrollWidth, document.body.clientWidth);
 		    var b_height = Math.max(document.body.scrollHeight, document.body.clientHeight);

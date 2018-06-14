@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="beans.User,beans.ExpreOrder,java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="yy/css/yy.css">
 </head>
 <body>
+
 	<title>专家预约</title>
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
@@ -51,11 +54,20 @@
                     </ul>
                 </li>
                 
-
-                <li class="am-dropdown" data-am-dropdown="" data-am-dropdown-toggle="">
+				<%
+                	User self = (User)session.getAttribute("UserInfo");
+                    if(self==null)
+                    {
+                    %>
+                    <jsp:forward page="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/index.jsp"/>
+                    <% 	
+                    }
+                    List<ExpreOrder> ex = (List)session.getAttribute("exprelist");
+                %>
+                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="tpl-header-list-user-nick">张医生</span>
-                        <span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                        <span class="tpl-header-list-user-nick"><%=self.getName()%></span>
+                        <span class="tpl-header-list-user-ico"> <img src="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/<%=self.getAccount()%>.jpg"></span>
                     </a>
                 </li>
                 <li><a href="###" class="tpl-header-list-link" style="font-size: 20px"><span class="am-icon-power-off"></span></a></li>
@@ -72,7 +84,7 @@
                 <ul class="tpl-left-nav-menu">
 
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link ">
+                        <a href="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/src/backgroundDoc/index.jsp" class="nav-link ">
                             <i class="am-icon-key"></i>
                             <span>个人信息</span>
                         </a>
@@ -86,11 +98,11 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: block;">
                             <li>
-                                <a href="zjyy.html" class="zzyy active">
+                                <a href="zjyy.jsp" class="zzyy active">
                                     <i class="am-icon-angle-right active"></i>
                                     <span>专家预约</span>
                                 </a>
-                                <a href="zxyy.html">
+                                <a href="zxyy.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>在线预约</span>
                                 </a>
@@ -117,9 +129,6 @@
                             <div class="am-form-group">
                                 <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
                                     <option value="option1">所有患者</option>
-                                    <option value="option2">1</option>
-                                    <option value="option3">2</option>
-                                    <option value="option3">3</option>
                                 </select>
                             </div>
                         </div>
@@ -135,11 +144,12 @@
                     <div class="am-g">
                         <div class="am-u-sm-12">
                             <form class="am-form">
+                               
                                 <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-id">ID</th>
+                                            <th class="table-id">序号</th>
                                             <th class="table-title">手机号</th>
                                             <!-- <th class="table-type">手机号</th> -->
                                             <th class="table-author am-hide-sm-only">姓名</th>
@@ -148,33 +158,32 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                     <%for(int i=0;i<ex.size();i++){%>
                                         <tr>
                                             <td><input type="checkbox"></td>
-                                            <td>1</td>
-                                            <td class="phone_id">17816131950</td>
-                                            <td class="am-hide-sm-only">测试1号</td>
-                                            <td class="am-hide-sm-only">2018年5月20日</td>
+                                            <td><%=i+1%></td>
+                                            <td class="phone_id"><%=ex.get(i).getTel()%></td>
+                                            <td class="am-hide-sm-only"><%=ex.get(i).getPatientName()%></td>
+                                            <td class="am-hide-sm-only"><%=ex.get(i).getValidDay()%></td>
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <div class="am-btn am-btn-default am-btn-xs am-text-secondary" id="more_btn">详细信息</div>
-                                                        <div class="am-btn am-btn-default am-btn-xs am-hide-sm-only" id="ckbs_btn" >查看病史</div>
+                                                        <div class="am-btn am-btn-default am-btn-xs am-text-secondary cnc1" id="more_btn">详细信息</div>
+                                                        <div class="am-btn am-btn-default am-btn-xs am-hide-sm-only cnc2" id="ckbs_btn" >查看病史</div>
                                                         
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                        
+                                      <% }%>
                                     </tbody>
                                 </table>
+                                
                                 <div class="am-cf">
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
                                             <li class="am-disabled" id="li_prev"><a href="#">«</a></li>
-                                            <li class="am-active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
+                                          
                                             <li id="li_next"><a href="#">»</a></li>
                                         </ul>
                                     </div>
@@ -191,6 +200,29 @@
     </div>
 	
     <!-- 详细信息 -->
+    <%for(int i=0;i<ex.size();i++){ 
+    	String certificateNo = ex.get(i).getPatientId();
+    	String birthday = "";
+        String age = "";
+        String sexCode = "";
+
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        char[] number = certificateNo.toCharArray();
+        boolean flag = true;
+        if (flag && certificateNo.length() == 15) {
+            birthday = "19" + certificateNo.substring(6, 8) + "-"
+                    + certificateNo.substring(8, 10) + "-"
+                    + certificateNo.substring(10, 12);
+            sexCode = Integer.parseInt(certificateNo.substring(certificateNo.length() - 3, certificateNo.length())) % 2 == 0 ? "女" : "男";
+            age = (year - Integer.parseInt("19" + certificateNo.substring(6, 8))) + "";
+        } else if (flag && certificateNo.length() == 18) {
+            birthday = certificateNo.substring(6, 10) + "-"
+                    + certificateNo.substring(10, 12) + "-"
+                    + certificateNo.substring(12, 14);
+            sexCode = Integer.parseInt(certificateNo.substring(certificateNo.length() - 4, certificateNo.length() - 1)) % 2 == 0 ? "女" : "男";
+            age = (year - Integer.parseInt(certificateNo.substring(6, 10))) + "";
+        }
+    %>
     <div class="moreMessage" >
     	<div class="cover"></div>
     	<div class="moreWin" >
@@ -200,12 +232,12 @@
 			</div>
 		
 			<div class="moreMessage-content">
-				<div>姓名：<span class="patient_name">患者1号</span></div>
-                <div>性别：<span class="patient_sex">女</span></div>
-                <div>年龄：<span class="patient_name">38岁</span></div>
-				<div>联系方式：<span class="patient_phone">1786131950</span></div>
-				<div>预约日期：<span class="order_time">2018年5月20日</span></div>
-				<div>住址：<span class="patient_address">杭州师范大学仓前校区</span></div>
+				<div>姓名：<span class="patient_name"><%=ex.get(i).getPatientName()%></span></div>
+                <div>性别：<span class="patient_sex"><%=sexCode%></span></div>
+                <div>年龄：<span class="patient_name"><%=age%></span></div>
+				<div>联系方式：<span class="patient_phone"><%=ex.get(i).getTel()%></span></div>
+				<div>预约日期：<span class="order_time"><%=ex.get(i).getValidDay()%></span></div>
+				<div>病情描述：<span class="patient_address"><%=ex.get(i).getSickIntro()%></span></div>
 			</div>
 		</div>
     </div>
@@ -218,17 +250,26 @@
             </div>
         
             <div class="moreMessage-content">
-                <div>既往史：<span class="jw_history">颅脑手术</span></div>
-                <div>婚育史：<span class="hy_history">未生育、未婚</span></div>
-                <div>过敏史：<span class="gm_history">芒果</span></div>
-                <div>家族史：<span class="jz_history">近视</span></div>
-                <div>个人习惯：<span class="grxg">吸烟</span></div>
+                <div><%=ex.get(i).getSickHistory()%></div>
             </div>
         </div>  
     </div>
+    <%} %>
 </body>
 	<script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/app.js"></script>
 	<script src="yy/js/yy.js"></script>
+	<script type="text/javascript">
+	$(".cnc1").click(function () {
+		var i=$('.cnc1').index(this);
+		console.log(i);
+		$(".moreMessage").eq(i).css("display", "flex");
+	});
+	$(".cnc2").click(function () {
+		console.log(i);
+		var i=$('.cnc2').index(this);
+		$(".ckbs").eq(i).css("display", "flex");
+	})
+	</script>
 </html>

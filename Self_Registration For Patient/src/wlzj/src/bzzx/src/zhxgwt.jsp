@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,23 +8,24 @@
 		<title>网络诊间</title>
 	</head>
 	<body>
-		<div id="helpContentDiv" class="clinicdetail" style="min-height: 450px">
+		<div id="helpContentDiv" class="clinicdetail" style="min-height: 300px">
 			<div id="helpContent" style="padding: 20px 50px">
 				<div class="hcquname">
-					网络诊间如何使用？
+					怎么登录？
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span style="font-weight: bold;">专科门诊</span><br>
-						<span>1、选择科室<br>2、选择就诊时间、填写就诊人以及相关的病情资料<br>3、支付挂号费用<br>4、等待医生叫号（请安装问诊助手，医生发起视频时会发送短信提醒您）<br>5、与医生视频问诊结束，等待医生书写诊断信息<br>6、在个人中心-专科申请记录中查看此次就诊的信息</span>
-						<br><br>
-
-						<span style="font-weight: bold;">名医预约</span><br>
-						<span>1、选择科室、名医及预约的时间<br>2、填写就诊人信息以及病情资料<br>
-							3、预约成功，预约当天在“个人中心-名医预约列表”中进行挂号费的支付<br>4、预约当天等待医生叫号<br>5、与医生视频问诊结束，等待医生书写诊断信息<br>6、在个人中心-名医预约记录中查看此次就诊的信息</span>
+						<span>已注册浙一网站或掌上浙一的用户，可直接使用该账号密码登录；如果尚未注册，请先注册用户。</span>
 					</p>
 				</div>
-
+				<div class="hcquname">
+					为什么注册的时候，提示手机号已注册？
+				</div>
+				<div class="hcquanswer">
+					<p class="MsoNormal">
+						<span>如您已注册了掌上浙一，可直接使用该账号密码登录；如忘记密码，请点击“忘记密码”重新设置密码。</span>
+					</p>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -30,7 +33,7 @@
 
 <style type="text/css">
 	body {
-		height: 450px;
+		height: 310px;
 	}
 
 	.clinicdetail {

@@ -234,7 +234,7 @@ function refreshImg() {
 	});
 	$.ajax({
 		type: "get",
-		url: "http://www.zy91.com/zyyy/wlzj2/imgUpload.html?action=getImgList&timestamp="+$("#timestamp").val(),
+		url: "http://www.zy91.com/zyyy/wlzj2/imgUpload.jsp?action=getImgList&timestamp="+$("#timestamp").val(),
 		success: function(ret) {
 			if (ret != null && ret.hasOwnProperty("ret_code") && ret.ret_code == 0) {
 				var imgList = ret.imgList;
@@ -280,7 +280,7 @@ function addImg(img) {
 function deleteItem(a, pictureId) {
 	$.ajax({
 		type: "get",
-		url: "http://www.zy91.com/zyyy/wlzj2/imgUpload.html?action=deleteImg&id="+pictureId,
+		url: "http://www.zy91.com/zyyy/wlzj2/imgUpload.jsp?action=deleteImg&id="+pictureId,
 		success: function(ret) {
 			if (ret != null && ret.hasOwnProperty("ret_code")) {
 				if (ret.ret_code == 0) {

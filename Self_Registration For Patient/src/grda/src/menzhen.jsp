@@ -86,7 +86,7 @@
 						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
 						<div>
 							<div id="login" class="loginbut">登录</div>
-							<a href="../zc/index.html" style="text-decoration: none;">
+							<a href="../../zc/index.jsp" style="text-decoration: none;">
 								<div id="register" class="loginbut">注册</div>
 							</a>
 						</div>
@@ -96,11 +96,11 @@
 		</div>
 		<div class="headnavarea" id="headnavarea">
 			<div class="headnav">
-				<a href="info.html"><span id="wlzj" class="hnunit">个人资料</span></a>
-				<a href="menzhen.html"><span id="zk" class="hnunit hnuclick">门诊记录</span></a>
+				<a href="info.jsp"><span id="wlzj" class="hnunit">个人资料</span></a>
+				<a href="menzhen.jsp"><span id="zk" class="hnunit hnuclick">门诊记录</span></a>
 				<a onclick="building();return false;"><span id="my" class="hnunit">处方记录</span></a>
-				<a href="jiancha.html"><span id="zxys" class="hnunit">检查记录</span></a>
-				<a href="huanyuan.html"><span id="helpCenter" class="hnunit">检验记录</span></a>
+				<a href="jiancha.jsp"><span id="zxys" class="hnunit">检查记录</span></a>
+				<a href="huanyuan.jsp"><span id="helpCenter" class="hnunit">检验记录</span></a>
 				<a onclick="building();return false;"><span id="personalCenter" class="hnunit">住院记录</span></a>
 			</div>
 		</div>
@@ -110,7 +110,9 @@
 		  		<tr class="tableTitle">
 			  		<td>
 			  			患者姓名
-			  		</td>
+			  		</
+			  		
+			  		td>
 			  		<td>
 			  			患者身份证
 			  		</td>
@@ -123,34 +125,38 @@
 		  		</tr>
 		  		<%
 				String id = (String)session.getAttribute("Userid");
-				String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+"666666"+"'" +
-				"order by validDay desc";
-				AccessDB db = new AccessDB();
-				ResultSet resultSet = db.excueteQuery(select);
-				JSONArray jsonArray = new JSONArray();
+		  		JSONArray jsonArray = new JSONArray();
 				JSONObject jsonObject = null;
-				try {
-					while(resultSet!=null&&resultSet.next())
-					{
-						jsonObject = new JSONObject();
-						String name = resultSet.getString("name");
-						jsonObject.put("name",name);
-						String patientId = resultSet.getString("patientId");
-						jsonObject.put("patientId",patientId);
-						String departName = resultSet.getString("department.name");
-						jsonObject.put("departName",departName);
-						int isMorning = resultSet.getInt("isMorning");
-						String ans = "上午";
-						if(isMorning==1)
-							ans = "下午";
-						String validday = resultSet.getString("validday");
-						jsonObject.put("validday",validday+" "+ans);
-						jsonArray.put(jsonObject);
+		  		if(id!=null&&id!="null")
+		  		{
+					String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+id+"'" +
+					"order by validDay desc";
+					AccessDB db = new AccessDB();
+					ResultSet resultSet = db.excueteQuery(select);
+					
+					try {
+						while(resultSet!=null&&resultSet.next())
+						{
+							jsonObject = new JSONObject();
+							String name = resultSet.getString("name");
+							jsonObject.put("name",name);
+							String patientId = resultSet.getString("patientId");
+							jsonObject.put("patientId",patientId);
+							String departName = resultSet.getString("department.name");
+							jsonObject.put("departName",departName);
+							int isMorning = resultSet.getInt("isMorning");
+							String ans = "上午";
+							if(isMorning==1)
+								ans = "下午";
+							String validday = resultSet.getString("validday");
+							jsonObject.put("validday",validday+" "+ans);
+							jsonArray.put(jsonObject);
+						}
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		  		}
 				
 		  	%>
 		  	<%for(int i=0;i<jsonArray.length();i++){ %>
@@ -184,63 +190,6 @@
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="index.js"></script>
-	<script>
-	$('#login').click(function(){
-		if ($("#userName").val() == "") {
-	        alert("用户名不能为空！");
-	        $("#userName").focus();
-	        return false;
-	    }
-	    if ($("#password").val() == "") {
-	        alert("密码不能为空！");
-	        $("#password").focus();
-	        return false;
-	    }
-	    $.ajax({
-	        type: "POST",
-	        url: "/hospital/LoginDeal",
-	        data: "name=" + $("#userName").val().toString() + "&password=" + $("#password").val().toString(),
-	        success: function (data) {
-	        	alert(data);
-	            if (data == "1") {
-	                $("#caselogin1").attr('style','display: none');
-	                $("#caselogin2").attr('style','display: block');
-	                $('#usernamespan').html($("#userName").val().toString());
-	                $('#loginDiv').attr('style', 'display: none');
-	                return true;
-	            }
-	            else {
-	                alert("请确认您输入的用户名或密码输入是否正确！");
-	                $("#userName").val("");
-	                $("#password").val("");
-	                $("#userName").focus();
-	                return false;
-	            }
-	        }
-
-	    });
-	});
-	function logout()
-	{
-		 $.ajax({
-		        type: "POST",
-		        url: "/hospital/LogoutDeal",
-		        success: function (data) {
-		        	alert("登出成功");
-		            $("#caselogin2").attr('style','display: none');
-		            $("#caselogin1").attr('style','display: block');
-		        }
-
-		    });
-	           
-	}
-	$('#caselogin1').click(function() {
-	    $('#loginDiv').attr('style', 'display: block');
-	});
-
-	$('.closeihconpop').click(function() {
-	    $('#loginDiv').attr('style', 'display: none');
-	});
-	</script>
-</html>
+	<script type="text/javascript" src="../js/logdeal.js"></script>
+	</html>
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,26 +8,52 @@
 		<title>网络诊间</title>
 	</head>
 	<body>
-		<div id="helpContentDiv" class="clinicdetail" style="min-height: 300px">
+		<div id="helpContentDiv" class="clinicdetail" style="min-height: 650px">
 			<div id="helpContent" style="padding: 20px 50px">
 				<div class="hcquname">
-					安装完成问诊助手后，打开视频时提示没有找到mfc100u.dll
+					在网络诊间，专科门诊与名医预约有什么区别？
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span>请点击下方链接，下载插件并安装即可</span>
+						<span>专科门诊为当天门诊挂号，于当日早上8:00开始；名医预约则为预约挂号，可提前一周预约。</span>
 					</p>
-					<a href="http://zyhlwylxz.zwjk.com/upload/2016/09/12/1473645812921.exe" class="ke-insertfile" target="_blank">vcredist_x86</a>
 				</div>
 				<div class="hcquname">
-					申请退款了，钱什么时候退回来？
+					挂号费可以使用医保支付吗？
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span>医院将在提交日起</span>
-						3个工作日内处理您的退款，逾期未处理则自动退款给您，如同意退款，费用原路返回至您的支付账户。
+						<span>暂不支持</span>
 					</p>
 				</div>
+
+				<div class="hcquname">
+					挂号或预约如何取消？
+				</div>
+				<div class="hcquanswer">
+					<p class="MsoNormal">
+						<span>未支付前，可取消预约挂号；支付后，如果需要取消，请联系客服。</span>
+					</p>
+				</div>
+
+				<div class="hcquname">
+					怎么查看预约挂号记录？
+				</div>
+				<div class="hcquanswer">
+					<p class="MsoNormal">
+						<span>登录后，打开“个人中心－专科申请记录/名医预约列表”。</span>
+					</p>
+				</div>
+
+				<div class="hcquname">
+					如何添加就诊人？
+				</div>
+				<div class="hcquanswer">
+					<p class="MsoNormal">
+						<span>登录后，打开“个人中心－常用联系人”，即可添加常用就诊人。</span>
+					</p>
+				</div>
+
 			</div>
 		</div>
 	</body>
@@ -33,7 +61,7 @@
 
 <style type="text/css">
 	body {
-		height: 310px;
+		height: 650px;
 	}
 
 	.clinicdetail {

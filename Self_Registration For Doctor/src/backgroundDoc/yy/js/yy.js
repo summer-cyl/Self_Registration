@@ -1,10 +1,5 @@
 var ind = 1;
-$("#more_btn").click(function () {
-	$(".moreMessage").css("display", "flex");
-});
-$("#ckbs_btn").click(function () {
-	$(".ckbs").css("display", "flex");
-})
+
 $(".moreWin-img").click(function() {
 	$(".moreMessage").css("display", "none");
 	$(".ckbs").css("display", "none");

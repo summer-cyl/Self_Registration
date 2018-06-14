@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,19 +11,21 @@
 		<div id="helpContentDiv" class="clinicdetail" style="min-height: 300px">
 			<div id="helpContent" style="padding: 20px 50px">
 				<div class="hcquname">
-					怎么登录？
+					安装完成问诊助手后，打开视频时提示没有找到mfc100u.dll
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span>已注册浙一网站或掌上浙一的用户，可直接使用该账号密码登录；如果尚未注册，请先注册用户。</span>
+						<span>请点击下方链接，下载插件并安装即可</span>
 					</p>
+					<a href="http://zyhlwylxz.zwjk.com/upload/2016/09/12/1473645812921.exe" class="ke-insertfile" target="_blank">vcredist_x86</a>
 				</div>
 				<div class="hcquname">
-					为什么注册的时候，提示手机号已注册？
+					申请退款了，钱什么时候退回来？
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span>如您已注册了掌上浙一，可直接使用该账号密码登录；如忘记密码，请点击“忘记密码”重新设置密码。</span>
+						<span>医院将在提交日起</span>
+						3个工作日内处理您的退款，逾期未处理则自动退款给您，如同意退款，费用原路返回至您的支付账户。
 					</p>
 				</div>
 			</div>

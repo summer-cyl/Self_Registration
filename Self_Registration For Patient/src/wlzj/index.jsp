@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,11 +31,11 @@
 		<div class="headnavarea" id="headnavarea">
 			<div class="headnav">
 				<span id="wlzj" class="hnunit hnuclick" address="src/wlzj2/index.jsp" target="contentFrame">网络诊间</span>
-				<span id="zk" class="hnunit" address="src/zkmz/index.html" target="contentFrame">专科门诊</span>
+				<span id="zk" class="hnunit" address="src/zkmz/index.jsp" target="contentFrame">专科门诊</span>
 				<span id="my" class="hnunit" address="src/zjyy/index.jsp">专家预约</span>
 				<span id="zxys" class="hnunit" address="src/zxys/index.jsp">在线医生</span>
-				<span id="helpCenter" class="hnunit" address="src/bzzx/index.html">帮助中心</span>
-				<span id="personalCenter" class="hnunit" address="src/grzx/index.html">个人中心</span>
+				<span id="helpCenter" class="hnunit" address="src/bzzx/index.jsp">帮助中心</span>
+				<span id="personalCenter" class="hnunit" address="src/grzx/index.jsp">个人中心</span>
 			</div>
 		</div>
 
@@ -63,7 +65,7 @@
 						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
 						<div>
 							<div id="login" class="loginbut">登录</div>
-							<a href="../zc/index.html" style="text-decoration: none;">
+							<a href="../zc/index.jsp" style="text-decoration: none;">
 								<div id="register" class="loginbut">注册</div>
 							</a>
 						</div>

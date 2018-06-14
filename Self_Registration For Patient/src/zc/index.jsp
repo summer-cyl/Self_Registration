@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -75,7 +77,10 @@
 			        data : "account="+tel+"&password="+password,    
 			        success: function (data) {
 			    		if(data=="1")
+			    		{	
 			    			alert("注册成功");
+			    			window.location.href='../../index.jsp';
+			    		}
 			    		else alert("注册失败");
 					
 			        }

@@ -75,13 +75,13 @@ $('.myyy').click(function() {
     window.location.href = "../zjyy2/index.jsp?";
 });
 $('.zxys').click(function() {
-    window.location.href = "../zxys2/index.html";
+    window.location.href = "../zxys2/index.jsp";
 });
 $('#moreMY').click(function() {
-    window.location.href = "../zjyy/index.html";
+    window.location.href = "../zjyy/index.jsp";
 });
 $('#moreZxys').click(function() {
-    window.location.href = "../zxys/index.html";
+    window.location.href = "../zxys/index.jsp";
 });
 function loadExperson()
 {
@@ -102,7 +102,7 @@ function loadExperson()
     	$(".experlist .item").remove();
     	for(var i=0;i<data.length&&i<5;i++)
 		{
-    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
+    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://192.168.0.101:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
     		           +"<div class='docname'>"+data[i].name+"</div>"
     		           +"<div class='deptname' title='"+data[i].id+"'>"+data[i].departName+"</div>"
     		           +"<div class='docgoodin' title=''>"+data[i].intro+data[i].position+"</div>"
@@ -116,13 +116,15 @@ function loadExperson()
     			 name = $(this).find(".docname").text();
     			 id=$(this).find(".deptname").attr("title");
     			 var numofremain = $(this).find(".myyy").html().toString();
-    			 
+    			 //alert("已经停诊");
+    			 console.log("已经停诊");
     			 if(numofremain.indexOf("预约0")>=0)
     			 {
-    				alert("已经停诊"); 
+    				//alert("已经停诊"); 
+    				console.log("已经停诊");
     			 }
     			 else
-    			 window.location.href = "../zxyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning+"&intro="+intro+"&name="+name+"&id="+id;
+    				 window.location.href = "../zjyy2/index.jsp?departName="+departName+"&chooseDay="+chooseDay+"&isMorning="+isMorning+"&intro="+intro+"&name="+name+"&id="+id;
             });
     		
 		}
@@ -159,10 +161,11 @@ function loadOnline()
                  var numofremain = $(this).find(".myyy").html().toString();
     			 if(numofremain.indexOf("预约0"))
     			 {
-    				alert("已经停诊"); 
+    				//alert("已经停诊"); 
+    				 console.log("已经停诊");
     			 }
     			 else
-    			    window.location.href = "../zxyy2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&intro="+intro+"&name="+name+"&id="+id;
+    			    window.location.href = "../zxyy2/index.jsp?departName="+departName+"&chooseDay="+chooseDay+"&intro="+intro+"&name="+name+"&id="+id;
             });
     		
 		}

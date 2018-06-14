@@ -198,7 +198,7 @@ function save()
 }
 
 $('.vddbutlast').click(function() {
-	window.location.href="../zkmz/index.html";
+	window.location.href="../zkmz/index.jsp";
 });
 
 function GetRequest() {  
@@ -339,18 +339,31 @@ $("#submitBtn").click(function(){
 	ansInput+=" ";
 	patient.history = ansInput;
 	patient.departId = departId;
+	if(patient.departId<0||patient.departId==null||patient.departId==""||patient.departId==undefined)
+		checked=false;
 	console.log(patient);
-	$.ajax({
-        type: "POST",
-        url: "/hospital/PreSepOrderDeal",
-        data : "patient="+JSON.stringify(patient),    
-        success: function (data) {
-    	if(data=="1")
-    		alert("挂号成功!");
-    	else
-    		alert("挂号失败!");
-        }
-    });
+	if(checked)
+	{
+		$.ajax({
+	        type: "POST",
+	        url: "/hospital/PreSepOrderDeal",
+	        data : "patient="+JSON.stringify(patient),    
+	        success: function (data) {
+	    	if(data=="1")
+	    	{
+	    		alert("挂号成功!");
+	    	    window.location.href='../wlzj2/index.jsp';
+	    	}
+	    	else
+	    		alert("挂号失败!");
+	        }
+	    });
+	}
+	else
+	{
+		alert("挂号失败!");
+	}
+	
 });
 time=-1;
 function morningClick(valid)

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,7 +41,7 @@
 						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
 						<div>
 							<div id="login" class="loginbut">登录</div>
-							<a href="../zc/index.html" style="text-decoration: none;">
+							<a href="../../zc/index.jsp" style="text-decoration: none;">
 								<div id="register" class="loginbut">注册</div>
 							</a>
 						</div>
@@ -49,11 +51,11 @@
 		</div>
 		<div class="headnavarea" id="headnavarea">
 			<div class="headnav">
-				<a href="info.html"><span class="hnunit hnuclick">个人资料</span></a>
+				<a href="info.jsp"><span class="hnunit hnuclick">个人资料</span></a>
 				<a href="menzhen.jsp"><span class="hnunit">门诊记录</span></a>
 				<a onclick="building();return false;"><span class="hnunit">处方记录</span></a>
-				<a href="jiancha.html"><span class="hnunit">检查记录</span></a>
-				<a href="huanyuan.html"><span class="hnunit">检验记录</span></a>
+				<a href="jiancha.jsp"><span class="hnunit">检查记录</span></a>
+				<a href="huanyuan.jsp"><span class="hnunit">检验记录</span></a>
 				<a onclick="building();return false;"><span class="hnunit">住院记录</span></a>
 			</div>
 		</div>
@@ -92,62 +94,8 @@
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="index.js"></script>
+    <script type="text/javascript" src="../js/logdeal.js"></script>
 	<script>
-	$('#login').click(function(){
-		if ($("#userName").val() == "") {
-	        alert("用户名不能为空！");
-	        $("#userName").focus();
-	        return false;
-	    }
-	    if ($("#password").val() == "") {
-	        alert("密码不能为空！");
-	        $("#password").focus();
-	        return false;
-	    }
-	    $.ajax({
-	        type: "POST",
-	        url: "/hospital/LoginDeal",
-	        data: "name=" + $("#userName").val().toString() + "&password=" + $("#password").val().toString(),
-	        success: function (data) {
-	        	alert(data);
-	            if (data == "1") {
-	                $("#caselogin1").attr('style','display: none');
-	                $("#caselogin2").attr('style','display: block');
-	                $('#usernamespan').html($("#userName").val().toString());
-	                $('#loginDiv').attr('style', 'display: none');
-	                return true;
-	            }
-	            else {
-	                alert("请确认您输入的用户名或密码输入是否正确！");
-	                $("#userName").val("");
-	                $("#password").val("");
-	                $("#userName").focus();
-	                return false;
-	            }
-	        }
-
-	    });
-	});
-	function logout()
-	{
-		 $.ajax({
-		        type: "POST",
-		        url: "/hospital/LogoutDeal",
-		        success: function (data) {
-		        	alert("登出成功");
-		            $("#caselogin2").attr('style','display: none');
-		            $("#caselogin1").attr('style','display: block');
-		        }
-
-		    });
-	           
-	}
-	$('#caselogin1').click(function() {
-	    $('#loginDiv').attr('style', 'display: block');
-	});
-
-	$('.closeihconpop').click(function() {
-	    $('#loginDiv').attr('style', 'display: none');
-	});
+	
 	</script>
 </html>

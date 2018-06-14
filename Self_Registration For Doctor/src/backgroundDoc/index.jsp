@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="beans.User,java.util.*"%>
 <!doctype html>
 <html>
 
@@ -64,11 +66,19 @@
                     </ul>
                 </li>
                 
-
+                <%
+                	User self = (User)session.getAttribute("UserInfo");
+                    if(self==null)
+                    {
+                    %>
+                    <jsp:forward page="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/index.jsp"/>
+                    <% 	
+                    }
+                %>
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="tpl-header-list-user-nick">张医生</span>
-                        <span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                        <span class="tpl-header-list-user-nick"><%=self.getName()%></span>
+                        <span class="tpl-header-list-user-ico"> <img src="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/<%=self.getAccount()%>.jpg"></span>
                     </a>
                 </li>
                 <li><a href="###" class="tpl-header-list-link" style="font-size: 20px"><span class="am-icon-power-off"></span></a></li>
@@ -85,7 +95,7 @@
                 <ul class="tpl-left-nav-menu">
 
                     <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link active">
+                        <a href="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/src/backgroundDoc/index.jsp" class="nav-link active">
                             <i class="am-icon-key"></i>
                             <span>个人信息</span>
                         </a>
@@ -99,11 +109,11 @@
                         </a>
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="zjyy.html">
+                                <a href="zjyy.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>专家预约</span>
                                 </a>
-                                <a href="zxyy.html">
+                                <a href="zxyy.jsp">
                                     <i class="am-icon-angle-right"></i>
                                     <span>在线预约情况</span>
                                 </a>
@@ -120,7 +130,7 @@
                 </ul>
             </div>
         </div>
-
+       <form action="SetIntroAction" method="post" class="am-form am-form-horizontal">
         <div class="tpl-content-wrapper">
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
@@ -138,59 +148,47 @@
                             <div class="am-form-group">
                                 <div class="am-form-group am-form-file" style="text-align: center">
                                     <div class="tpl-form-file-img">
-                                        <img src="assets/img/user01.png" alt="" style="width: 120px; height: 120px; border-radius: 50%">
+                                        <img src="http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/<%=self.getAccount()%>.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%">
                                     </div>
-                                    <button type="button" class="am-btn am-btn-sm" style="background-color: #fff; cursor: pointer;">更改头像</button>
-                                    <input id="doc-form-file" type="file" multiple>
+                                    
                                 </div>
                             </div>
                         </div>
                         
                         <div class="am-u-sm-6 am-u-md-6">
-                            <form class="am-form am-form-horizontal">
+                            
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="姓名 / Name">
+                                        <input type="text" id="user-name" placeholder="姓名 / Name" disabled="disabled" value="<%=self.getName()%>">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="性别 / sex">
+                                        <input type="text" id="user-name" placeholder="性别 / sex" disabled="disabled" value="<%=self.getSex()%>">
                                     </div>
                                 </div>
-
                                 <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">手机号</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="年龄 / age">
+                                        <input type="text" id="user-name" name="tel" placeholder="手机号" value="<%=self.getTel()%>">
                                     </div>
                                 </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-phone" class="am-u-sm-3 am-form-label">手机号码</label>
+								<div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">出生日期</label>
                                     <div class="am-u-sm-9">
-                                        <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone">
+                                        <input type="text" id="user-name" name="birth" placeholder="出生日期" value="<%=self.getBirth()%>">
                                     </div>
                                 </div>
-
                                 <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">邮箱</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">入职日期</label>
                                     <div class="am-u-sm-9">
-                                        <input type="email" id="user-email" placeholder="邮箱 / Email">
+                                        <input type="text" id="user-name" placeholder="入职时间" disabled="disabled" value="<%=self.getWorktime()%>">
                                     </div>
                                 </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label"></label>
-                                    <div class="am-u-sm-9" style="text-align: right;">
-                                        <button type="button" class="am-btn am-btn-primary" >保存</button>
-                                    </div>
-                                </div>
-
-                            </form>
+                            
                         </div>
 
                         <div class="am-u-sm-4 am-u-md-4"></div>
@@ -211,52 +209,56 @@
                     <div class="am-g tpl-amazeui-form" style="margin-top: 30px;">
                         
                         <div class="am-u-sm-6 am-u-md-6" style="margin-left: 22%;">
-                            <form class="am-form am-form-horizontal">
+                          
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">在职医院</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="医院" value="杭州师范大学附属医院">
+                                        <input type="text" id="user-name" placeholder="医院" value="XXXXX医院" disabled="disabled">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">所属科室</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="科室">
+                                        <input type="text" id="user-name" placeholder="科室" disabled="disabled" value="<%=self.getDepartName()%>">
                                     </div>
                                 </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">医龄</label>
+								<div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">职位</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="医龄">
+                                        <textarea class="" rows="5" id="user-intro" placeholder="职位" disabled="disabled"> <%=self.getPosition()%></textarea>
                                     </div>
                                 </div>
-
+								
                                 <div class="am-form-group">
-                                    <label for="user-intro" class="am-u-sm-3 am-form-label">简介</label>
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">个人简介</label>
                                     <div class="am-u-sm-9">
-                                        <textarea class="" rows="5" id="user-intro" placeholder="个人简介"></textarea>
+                                        <textarea class="" rows="5" name="intro" id="user-intro-detail" placeholder="个人简介" ><%=self.getIntro()%></textarea>
                                     </div>
                                 </div>
-
-                            </form>
+								<div class="am-form-group">
+                                    <label for="user-email" class="am-u-sm-3 am-form-label"></label>
+                                    <div class="am-u-sm-9" style="text-align: right;">
+                                        <button type="submit" class="am-btn am-btn-primary" id="reserveInfo">保存</button>
+                                    </div>
+                                </div>
+                           
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
+		</form>
     </div>
-
-
-
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/iscroll.js"></script>
     <script src="assets/js/app.js"></script>
+    <script type="text/javascript">
+        
+    	
+    </script>
 </body>
 
 </html>

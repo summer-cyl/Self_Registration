@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +19,13 @@
 			<div class="lb_gl">
 				<div class="pictureSlider">
 					<ul id="zturn" class="poster-list">
-						<li class="poster-item  zturn-item" href="src/grda/index.html">
+						<li class="poster-item  zturn-item" href="src/grda/index.jsp">
 							<img class="hp-carimg" src="image/grda.png" >
 							<p style="display: block;">
 								个人档案
 							</p>
 						</li>
-						<li class="poster-item  zturn-item" href="src/wlzj/index.html" >
+						<li class="poster-item  zturn-item" href="src/wlzj/index.jsp" >
 							<img class="hp-carimg" src="image/wlzj.png" >
 							<p style="display: block;">
 								网络诊间

@@ -201,7 +201,7 @@ function chooseClick(mainType){
 	}
 
 	$('.vddbutlast').click(function() {
-		window.location.href="../zkmz/index.html";
+		window.location.href="../zkmz/index.jsp";
 	});
 	
 function GetQueryString(name)
@@ -290,7 +290,8 @@ $("#submitBtn").click(function(){
 		checked=false;
 	//获取时间
 	patient.time = chooseDay;
-	
+	if(patient.time==""||patient.time==null||patient.time==undefined)
+		checked=false;
 	//获取病情的描述
 	patient.desease = $("#diseaseDescription").val();
 	//获取选项
@@ -301,18 +302,32 @@ $("#submitBtn").click(function(){
 					+"个人习惯"+$('#personalHabits').text()+"\n";
 	patient.isMorning = isMorning;
 	patient.doctorId = doctorId;
+	if(patient.doctorId<0||patient.doctorId==""||patient.doctorId==null||patient.doctorId==undefined)
+		checked=false;
 	patient.chooseDay = chooseDay;
-	
+	if(patient.chooseDay==""||patient.chooseDay==null||patient.chooseDay==undefined)
+		checked=false;
 	console.log(patient);
-	$.ajax({
-        type: "POST",
-        url: "/hospital/DealExpreOrder",
-        data : "patient="+JSON.stringify(patient),    
-        success: function (data) {
-    	if(data=="1")
-    		alert("挂号成功!");
-    	else
-    		alert("挂号失败!");
-        }
-    });
+	if(checked)
+	{
+		$.ajax({
+	        type: "POST",
+	        url: "/hospital/DealExpreOrder",
+	        data : "patient="+JSON.stringify(patient),    
+	        success: function (data) {
+	    	if(data=="1")
+	    	{	
+	    		alert("挂号成功!");
+	    		window.location.href='../wlzj2/index.jsp';
+	    	 
+	    	}
+	    	else
+	    		alert("挂号失败!");
+	        }
+	    });
+	}
+	else
+	{
+		alert("挂号失败!");
+	}
 });

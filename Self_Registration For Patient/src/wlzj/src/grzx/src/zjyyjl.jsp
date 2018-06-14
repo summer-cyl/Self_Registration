@@ -79,8 +79,8 @@
 					while(resultSet!=null&&resultSet.next())
 					{
 						jsonObject = new JSONObject();
-						String name = resultSet.getString("name");
-						jsonObject.put("name",name);
+						String patientName = resultSet.getString("patientName");
+						jsonObject.put("patientName",patientName);
 						String patientId = resultSet.getString("patientId");
 						jsonObject.put("patientId",patientId);
 						String departName = resultSet.getString("departName");
@@ -88,7 +88,7 @@
 						jsonObject.put("departName",departName+" "+doctName);
 						int isMorning = resultSet.getInt("isMorning");
 						String ans = "上午";
-						if(isMorning==0)
+						if(isMorning==1)
 							ans = "下午";
 						String validday = resultSet.getString("validday");
 						jsonObject.put("validday",validday+" "+ans);
@@ -103,7 +103,7 @@
 		  	<%for(int i=0;i<jsonArray.length();i++){ %>
 		  		<tr class="tableContent">
 		  			<td>
-		  				<%=((JSONObject)jsonArray.get(i)).get("name")%>
+		  				<%=((JSONObject)jsonArray.get(i)).get("patientName")%>
 		  			</td>
 		  			<td> 
 		  			    <%=((JSONObject)jsonArray.get(i)).get("patientId")%>

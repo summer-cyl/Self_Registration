@@ -80,17 +80,26 @@ $("#submitBtn").click(function(){
 	patient.chooseDay = chooseDay;
 	
 	console.log(patient);
-	$.ajax({
+	if(checked)
+	{$.ajax({
         type: "POST",
         url: "/hospital/DealOnlineOrder",
         data : "patient="+JSON.stringify(patient),    
         success: function (data) {
     	if(data=="1")
+    	{	
     		alert("挂号成功!");
+    		window.location.href='../wlzj2/index.jsp';
+    	}
     	else
     		alert("挂号失败!");
         }
     });
+	}
+	else
+		{
+		alert("挂号失败!");
+		}
 });
 function saveMedicalHistory(mainType) {
 	if(mainType=="既往史")
@@ -224,7 +233,7 @@ function save()
 }
 
 $('.vddbutlast').click(function() {
-    window.location.href = "../zxys/index.html";
+    window.location.href = "../zxys/index.jsp";
 });
 function GetQueryString(name)
 {

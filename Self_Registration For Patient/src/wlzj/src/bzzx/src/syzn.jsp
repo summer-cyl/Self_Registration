@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,49 +8,20 @@
 		<title>网络诊间</title>
 	</head>
 	<body>
-		<div id="helpContentDiv" class="clinicdetail" style="min-height: 650px">
+		<div id="helpContentDiv" class="clinicdetail" style="min-height: 450px">
 			<div id="helpContent" style="padding: 20px 50px">
 				<div class="hcquname">
-					在网络诊间，专科门诊与名医预约有什么区别？
+					网络诊间如何使用？
 				</div>
 				<div class="hcquanswer">
 					<p class="MsoNormal">
-						<span>专科门诊为当天门诊挂号，于当日早上8:00开始；名医预约则为预约挂号，可提前一周预约。</span>
-					</p>
-				</div>
-				<div class="hcquname">
-					挂号费可以使用医保支付吗？
-				</div>
-				<div class="hcquanswer">
-					<p class="MsoNormal">
-						<span>暂不支持</span>
-					</p>
-				</div>
+						<span style="font-weight: bold;">专科门诊</span><br>
+						<span>1、选择科室<br>2、选择就诊时间、填写就诊人以及相关的病情资料<br>3、支付挂号费用<br>4、等待医生叫号（请安装问诊助手，医生发起视频时会发送短信提醒您）<br>5、与医生视频问诊结束，等待医生书写诊断信息<br>6、在个人中心-专科申请记录中查看此次就诊的信息</span>
+						<br><br>
 
-				<div class="hcquname">
-					挂号或预约如何取消？
-				</div>
-				<div class="hcquanswer">
-					<p class="MsoNormal">
-						<span>未支付前，可取消预约挂号；支付后，如果需要取消，请联系客服。</span>
-					</p>
-				</div>
-
-				<div class="hcquname">
-					怎么查看预约挂号记录？
-				</div>
-				<div class="hcquanswer">
-					<p class="MsoNormal">
-						<span>登录后，打开“个人中心－专科申请记录/名医预约列表”。</span>
-					</p>
-				</div>
-
-				<div class="hcquname">
-					如何添加就诊人？
-				</div>
-				<div class="hcquanswer">
-					<p class="MsoNormal">
-						<span>登录后，打开“个人中心－常用联系人”，即可添加常用就诊人。</span>
+						<span style="font-weight: bold;">名医预约</span><br>
+						<span>1、选择科室、名医及预约的时间<br>2、填写就诊人信息以及病情资料<br>
+							3、预约成功，预约当天在“个人中心-名医预约列表”中进行挂号费的支付<br>4、预约当天等待医生叫号<br>5、与医生视频问诊结束，等待医生书写诊断信息<br>6、在个人中心-名医预约记录中查看此次就诊的信息</span>
 					</p>
 				</div>
 
@@ -59,7 +32,7 @@
 
 <style type="text/css">
 	body {
-		height: 650px;
+		height: 450px;
 	}
 
 	.clinicdetail {

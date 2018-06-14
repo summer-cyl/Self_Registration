@@ -20,7 +20,7 @@ $('.dlclidet span').click(function() {
 });
 
 $('.zxys').click(function() {
-    window.location.href = "../zxys2/index.html";
+    window.location.href = "../zxys2/index.jsp";
 });
 function loadOnline()
 {
@@ -35,7 +35,7 @@ function loadOnline()
     	$(".onlinedoctors .item").remove();
     	for(var i=0;i<data.length;i++)
 		{
-    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://localhost:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
+    		var text = "<div class='item'> <div class='docimg'> <div class='docimg'><img src='http://192.168.0.101:8080/hospital/Self_Registration/Self_Registration%20For%20Doctor/image/"+data[i].id+".jpg'>"
     		           +"<div class='docname'>"+data[i].name+"</div>"
     		           +"<div class='deptname' title='"+data[i].id+"'>"+data[i].departName+"</div>"
     		           +"<div class='docgoodin' title=''>"+data[i].intro+data[i].position+"</div>"
@@ -53,7 +53,7 @@ function loadOnline()
     				alert("已经停诊"); 
     			 }
     			 else
-    			    window.location.href = "../zxys2/index.html?departName="+departName+"&chooseDay="+chooseDay+"&intro="+intro+"&name="+name+"&id="+id;
+    			    window.location.href = "../zxys2/index.jsp?departName="+departName+"&chooseDay="+chooseDay+"&intro="+intro+"&name="+name+"&id="+id;
             });
     		
 		}

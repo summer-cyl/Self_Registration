@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,7 +33,7 @@
 				<div class="content" style="background: transparent;">
 					<ul>
 						<li class="info">
-							<a href="src/info.html">
+							<a href="src/info.jsp">
 								<i></i>
 							    <p>个人资料</p>
 							</a>
@@ -43,26 +45,26 @@
 							</a>
 						</li>
 						<li class="chufang">
-							<a href="src/chufang.html">
+							<a href="src/chufang.jsp">
 								<i></i>
 								<p>处方记录</p>
 								<span>（建设中）</span>
 							</a>
 						</li>
 						<li class="jiancha">
-							<a href="src/jiancha.html">
+							<a href="src/jiancha.jsp">
 								<i></i>
 								<p>检查记录</p>
 							</a>
 						</li>
 						<li class="huanyan">
-							<a href="src/huanyan.html">
+							<a href="src/huanyan.jsp">
 								<i></i>
 								<p>检验记录</p>
 							</a>
 						</li>
 						<li class="zhuyuan">
-							<a href="src/zhuyuan.html">
+							<a href="src/zhuyuan.jsp">
 								<i></i>
 								<p>住院记录</p>
 								<span>（建设中）</span>
@@ -95,7 +97,7 @@
 						<a id="forgetPassWord" class="forgetkey">忘记密码</a>
 						<div>
 							<div id="login" class="loginbut">登录</div>
-							<a href="../zc/index.html" style="text-decoration: none;">
+							<a href="../zc/index.jsp" style="text-decoration: none;">
 								<div id="register" class="loginbut">注册</div>
 							</a>
 						</div>
@@ -107,27 +109,7 @@
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="js/index.js"></script>
+	<script type="text/javascript" src="js/logdeal.js"></script>
 	<script type="text/javascript">
-	$.ajax({
-	    type: "POST",
-	    url: "/hospital/EnsureLog",
-	    success: function (data) {
-	    	alert(data);
-	        if (data == "1") {
-	            $("#caselogin1").attr('style','display: none');
-	            $("#caselogin2").attr('style','display: block');
-	            $('#usernamespan').html($("#userName").val().toString());
-	            $('#loginDiv').attr('style', 'display: none');
-	            return true;
-	        }
-	        else {
-	            alert("请确认您输入的用户名或密码输入是否正确！");
-	            $("#userName").val("");
-	            $("#password").val("");
-	            $("#userName").focus();
-	            return false;
-	        }
-	    }
-	});
 	</script>
 </html>
