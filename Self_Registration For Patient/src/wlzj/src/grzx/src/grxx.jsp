@@ -227,13 +227,13 @@
         	$("#workAddress").val(data.company);
         	if(data.isMarried=="1")
        		{
-       			$(".isMarred:first").attr("checked","true");
-       			$(".isMarred:last").attr("checked","false");
+       			$(".isMarred:first").prop("checked",true);
+       			$(".isMarred:last").prop("checked",false);
        		}
         	else
         	{
-        		$(".isMarred:first").attr("checked","false");
-        		$(".isMarred:last").attr("checked","true");
+        		$(".isMarred:first").prop("checked",false);
+        		$(".isMarred:last").prop("checked",true);
         	}
         	
         }

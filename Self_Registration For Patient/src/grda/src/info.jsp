@@ -88,14 +88,36 @@
 					</div>
 				</a>
 			</div>
-
 		</div>
-		
 	</body>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="index.js"></script>
     <script type="text/javascript" src="../js/logdeal.js"></script>
 	<script>
-	
+	$.ajax({
+        type: "POST",
+        url: "/hospital/GRXXLoad",
+        success: function (data) {
+        	console.log(data);
+        	data = eval("("+data+")");
+        	if(data.id.substr(16,1)%2==0)
+        	$("#sex").text("女");
+        	else
+        	$("#sex").text("男");
+        	var birth = data.id.substr(6,4)+"年"+data.id.substr(10,2)+"月"+data.id.substr(12,2)+"日";
+        	var age = 2018-data.id.substr(6,4);
+        	$("#name").text(data.name);
+        	$("#loginName").text(data.account);
+        	$("#idCardNum").text(data.id);
+        	$("#work").text(data.job);
+        	$("#birth").text(birth);
+        	$("#nation").text(data.people);
+        	$("#homePlace").text(data.livePlace);
+        	$("#tel").text(data.company);
+        	$("#age").text(age);
+        	
+        }
+
+    });
 	</script>
 </html>

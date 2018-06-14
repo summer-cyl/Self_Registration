@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 
@@ -111,7 +113,7 @@
                 </div>
 
                 <div class="tpl-block ">
-
+                    <form action="/hospital/addDoctors" method="post" class="am-form am-form-horizontal">
                     <div class="am-g tpl-amazeui-form" style="margin-top: 30px;">
 
 
@@ -122,90 +124,85 @@
                                         <img src="assets/img/user01.png" alt="" style="width: 120px; height: 120px; border-radius: 50%">
                                     </div>
                                     <button type="button" class="am-btn am-btn-sm" style="background-color: #fff; cursor: pointer;">更改头像</button>
-                                    <input id="doc-form-file" type="file" multiple>
+                                    <input id="doc-form-file" type="file" name="picture">
                                 </div>
                             </div>
                         </div>
                         
+                       
                         <div class="am-u-sm-6 am-u-md-6">
-                            <form class="am-form am-form-horizontal">
+                            
+                       
+     
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="姓名 / Name">
+                                        <input type="text" name="name" placeholder="姓名 / Name" >
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="性别 / sex">
+                                        <input type="text" id="user-name" placeholder="性别 / sex" name="sex" >
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">出生日期</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="年龄 / age">
+                                        <input type="text" id="user-name" placeholder="出生日期 / birth" name="birth" >
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-phone" class="am-u-sm-3 am-form-label">手机号码</label>
                                     <div class="am-u-sm-9">
-                                        <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone">
+                                        <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone" name="tel" >
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label">邮箱</label>
+                                    <label for="user-email" class="am-u-sm-3 am-form-label">工作时间</label>
                                     <div class="am-u-sm-9">
-                                        <input type="email" id="user-email" placeholder="邮箱 / Email">
+                                        <input type="text" id="user-email" placeholder="工作时间 " name="worktime" >
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">在职医院</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">个人简介</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="医院">
+                                        <textarea  id="user-name" placeholder="个人简介" name="intro"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">所属科室</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="科室">
+                                        
+                                         <input type="text" id="user-name" placeholder="所属科室" name="departName" >
                                     </div>
                                 </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">医龄</label>
+								 <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">职位</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="医龄">
+                                        <input type="text" id="user-name" placeholder="科室" name="position" >
                                     </div>
                                 </div>
-
-                                <div class="am-form-group">
-                                    <label for="user-intro" class="am-u-sm-3 am-form-label">简介</label>
-                                    <div class="am-u-sm-9">
-                                        <textarea class="" rows="5" id="user-intro" placeholder="个人简介"></textarea>
-                                    </div>
-                                </div>
-
                                 <div class="am-form-group">
                                     <label for="user-email" class="am-u-sm-3 am-form-label"></label>
                                     <div class="am-u-sm-9" style="text-align: right;">
-                                        <button type="button" class="am-btn am-btn-primary" >添加</button>
+                                        <button type="submit" class="am-btn am-btn-primary" >保存</button>
                                     </div>
                                 </div>
-
-                            </form>
                         </div>
-
+                      
                         <div class="am-u-sm-4 am-u-md-4"></div>
                     </div>
+                	</form>
                 </div>
 
+                 
             </div>
 
         </div>
