@@ -49,6 +49,7 @@
 			}
     </style>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
 	</head>
 	<body>
 	<div id="header" class="header">
@@ -102,7 +103,8 @@
 			</div>
 		</div>
 		
-		<div id="content" class="personal-data" style="height: 50px;">
+		<div id="content" class="personal-data" style="height: 450px;">
+			<p>门诊记录</p>
 			<table cellspacing="0" class="data-info" border="0" cellpadding="0">
 		  		<tr class="tableTitle">
 			  		<td>

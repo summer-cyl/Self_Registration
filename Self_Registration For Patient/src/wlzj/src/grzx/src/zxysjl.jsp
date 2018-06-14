@@ -66,8 +66,8 @@
 	</head>
 	<body>
 		  <div id="userInfoDiv">
-			<div class="addPerson">专科申请记录</div>
-			<div class="addCon formDiv" style="width:90%;">
+			<div class="addPerson">在线医生记录</div>
+			<div class="addCon formDiv" style="width:105%;">
 				<table cellspacing="0">
 			  		<tr class="tableTitle">
 				  		<td>
