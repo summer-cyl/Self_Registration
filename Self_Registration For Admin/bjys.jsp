@@ -152,11 +152,11 @@
                                     <div class="tpl-form-file-img">
                                         <img src="../Self_Registration%20For%20Doctor/image/<%=account%>.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%">
                                     </div>
-                                    <button type="button" class="am-btn am-btn-sm" style="background-color: #fff; cursor: pointer;">更改头像</button>
                                     <input id="doc-form-file" type="file">
                                 </div>
                             </div>
-                             <button type="submit" class="am-btn am-btn-primary" >上传</button>
+                            <input name="file" type="file">
+                            <button type="submit" class="am-btn am-btn-primary" >上传</button>
                         </div>
                         </form>
                         <form class="am-form am-form-horizontal" action="/hospital/changeDoctorInfo" method="post">
