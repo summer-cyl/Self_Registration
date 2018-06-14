@@ -23,7 +23,7 @@
 						，您好
 					</a>
 					<span class="sep"> | </span>
-					<a class="logouta" hidefocus="hidefocus" href="javascript:logout()">安全退出</a>
+					<a class="logouta" style="color:#1695CA;" hidefocus="hidefocus" href="javascript:logout()">安全退出</a>
 				</div>
 			</div>
 		</div>

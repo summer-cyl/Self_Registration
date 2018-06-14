@@ -9,14 +9,10 @@
 		<style type="text/css">
 		   table{
 		       margin:auto;
-		       margin-top:50px;
+		       margin-top: -15px;
 		       border:0;
-		       cellspacing:0;
-		       cellpadding:0;
-		   }
-		            
+		   }       
 		   table tr{
-		   
 		        border:none;
 		        padding:0;
 		        margin:0;
@@ -26,14 +22,15 @@
 	       border:none;
 		   	margin:0;
 		   	padding:0;
-		   	width:150px;
+		   	width:25%;
 		   }
 	
 			.tableTitle {
-				background-color:#3385FF;
+				background-color:rgb(122, 166, 224);
 				font-size:16px;
 				color:white;
 			}
+
 			.tableTitle td{
 				height:35px;
 				text-align:center;
@@ -106,13 +103,11 @@
 		</div>
 		
 		<div id="content" class="personal-data" style="height: 50px;">
-			<table cellspacing="0">
+			<table cellspacing="0" class="data-info" border="0" cellpadding="0">
 		  		<tr class="tableTitle">
 			  		<td>
 			  			患者姓名
-			  		</
-			  		
-			  		td>
+			  		</td>
 			  		<td>
 			  			患者身份证
 			  		</td>

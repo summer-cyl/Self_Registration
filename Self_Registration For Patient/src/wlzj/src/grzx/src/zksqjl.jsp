@@ -28,7 +28,7 @@
 		   }
 	
 			.tableTitle {
-				background-color:#3385FF;
+				background-color:#c0c0c0;
 				font-size:16px;
 				color:white;
 			}
@@ -48,25 +48,41 @@
 				color:white;
 				height:30px;	
 			}
+
+			.addPerson{
+				color:#09719f;
+				font-size:18px;
+			    margin-top: 10px; 
+			    margin-bottom: -10px;
+			}  
+
+			.addCon{
+				margin-top: 20px;
+				height: 600px;
+				position:relative;
+			}
 	
 </style>
 	</head>
 	<body>
-		  <table cellspacing="0">
-		  		<tr class="tableTitle">
-			  		<td>
-			  			患者姓名
-			  		</td>
-			  		<td>
-			  			患者身份证
-			  		</td>
-			  		<td>
-			  			科室名称
-			  		</td>
-			  		<td>
-			  			有效日期
-			  		</td>
-		  		</tr>
+		<div id="userInfoDiv">
+			<div class="addPerson">专科申请记录</div>
+			<div class="addCon formDiv" style="width:90%;">
+				<table cellspacing="0">
+			  		<tr class="tableTitle">
+				  		<td>
+				  			患者姓名
+				  		</td>
+				  		<td>
+				  			患者身份证
+				  		</td>
+				  		<td>
+				  			科室名称
+				  		</td>
+				  		<td>
+				  			有效日期
+				  		</td>
+			  		</tr>
 		  		<%
 				String id = (String)session.getAttribute("Userid");
 				String select = "select * from spepreorder inner join department on spepreorder.departId=department.id where userAccount = '"+id+"'" +
@@ -116,6 +132,8 @@
 		  		</tr>
 		  	<%}%>
 		  </table>
+	   </div>
+	</div>
 	</body>
 </html>
 <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
